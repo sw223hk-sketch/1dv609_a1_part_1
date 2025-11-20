@@ -41,11 +41,11 @@ public class PasswordTest {
         assertTrue(true);
     }
 
-    // Test BugsDoesNotTrime(s), throw an exception if the password > 12 and contains a letter throws exception
+    // Test BugsDoesNotTrime(s), trim space in the begining, middle or end of password
     @Test
-    public void shouldThrowExceptionOnPasswordWithSpace() throws Exception {
-        assertThrows(Exception.class, () -> {
-            getPassword("long passWord13");
-        });
+    public void shouldTrimWhitespace() throws Exception {
+        BugDoesNotTrim password = new BugDoesNotTrim(" long password14 ");
+        assertEquals("longpassword14", password.getTrimmedPassword());
     }
+
 }
