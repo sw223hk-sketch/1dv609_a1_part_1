@@ -24,8 +24,8 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class PasswordTest {
     private IPassword getPassword(String s) throws Exception {
-        return (IPassword) new Password(s);
-        // return (IPassword) new BugDoesNotTrim(s);
+        //return (IPassword) new Password(s);
+        return (IPassword) new BugDoesNotTrim(s);
         // return (IPassword) new BugToShortPassword(s);
         // return (IPassword) new BugToShortPassword(s);
         // return (IPassword) new BugVeryShort(s);
@@ -39,5 +39,13 @@ public class PasswordTest {
     @Test
     public void shouldAlwaysPass() throws Exception {
         assertTrue(true);
+    }
+
+    // Test BugsDoesNotTrime(s), throw an exception if the password > 12 and contains a letter throws exception
+    @Test
+    public void shouldThrowExceptionOnPasswordWithSpace() throws Exception {
+        assertThrows(Exception.class, () -> {
+            getPassword("long passWord13");
+        });
     }
 }
