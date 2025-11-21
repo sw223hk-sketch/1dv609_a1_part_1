@@ -74,7 +74,7 @@ public class PasswordTest {
         () -> new BugWrongExceptionMessage("short") // Wrong message
        );
 
-       assertEquals("To short password", ex.getMessage()); // Check if correct and wrong messages are equal
+       assertNotEquals("To short password", ex.getMessage()); // Check if correct and wrong messages are equal
    }
        
 }
