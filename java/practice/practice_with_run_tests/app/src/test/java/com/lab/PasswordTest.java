@@ -47,11 +47,14 @@ public class PasswordTest {
         assertEquals("longpassword14", password.getTrimmedPassword()); //length = 14
     }
 
-    // Test BugToShortPassword(s), password cannot be short(<12)
+    // Test BugToShortPassword(s), throw an exception when password length < 11
     @Test 
-    public void passwordNotShort() throws Exception {
-        BugToShortPassword password = new BugToShortPassword("password1234"); //length = 12
-        assertEquals("password1234", password.getNotShortPassword());
+    public void passwordShorterThanTwelve() throws Exception {
+        assertThrows(Exception.class, 
+            () -> {
+                new BugToShortPassword("password123"); // length = 10
+            }
+        );
     }
 
     // Test BugVeryShort(String pw), throw an exception when password length < 6
@@ -59,7 +62,7 @@ public class PasswordTest {
     public void passwordShorterThanSix() throws Exception {
         assertThrows(Exception.class,
             () -> {
-                new BugVeryShort("pass1"); 
+                new BugVeryShort("pass1"); // length = 5
             }
         );
     }
