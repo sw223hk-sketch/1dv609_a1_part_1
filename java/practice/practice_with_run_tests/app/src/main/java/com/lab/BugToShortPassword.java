@@ -26,7 +26,7 @@ public class BugToShortPassword implements IPassword{
     }
 
     private boolean isToShort(String pw) {
-        return pw.length() < 11; // Bug
+        return pw.length() < 12; // Bug fixed, short length should include 11
     }
 
     private boolean containsNumber(String text) {

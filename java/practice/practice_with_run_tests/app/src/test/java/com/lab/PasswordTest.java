@@ -44,15 +44,15 @@ public class PasswordTest {
     // Test BugsDoesNotTrime(s), should trim space in the begining, middle or end of password
     @Test
     public void shouldTrimWhitespace() throws Exception {
-        BugDoesNotTrim password = new BugDoesNotTrim(" long password14 ");
-        assertEquals("longpassword14", password.getTrimmedPassword());
+        BugDoesNotTrim password = new BugDoesNotTrim(" long password14 "); 
+        assertEquals("longpassword14", password.getTrimmedPassword()); //length = 14
     }
 
     //Test BugToShortPassword(s), password cannot be short(<12)
     @Test 
     public void passwordNotShort() throws Exception {
-        BugToShortPassword password = new BugToShortPassword("password12");
-        assertEquals("password12", password.getTrimmedPassword());
+        BugToShortPassword password = new BugToShortPassword("password1234"); // length = 12
+        assertEquals("password1234", password.getTrimmedPassword());
     }
 
 }
