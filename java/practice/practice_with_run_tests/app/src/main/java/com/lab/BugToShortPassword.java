@@ -3,6 +3,7 @@ package com.lab;
 // Buggy 2: Allows passwords that are too short
 public class BugToShortPassword implements IPassword{
     protected int passwordHash;
+    private String trimmedPassword;
 
     public BugToShortPassword(String pw) throws Exception {
         String trimmedPW = pw.trim(); // Remove whitespace
@@ -13,6 +14,7 @@ public class BugToShortPassword implements IPassword{
             throw new Exception("Does not contain a number");
         }
         this.passwordHash = simpleHash(trimmedPW);
+        this.trimmedPassword = trimmedPW;
     }
 
     private int simpleHash(String input) {
@@ -39,5 +41,9 @@ public class BugToShortPassword implements IPassword{
     @Override
     public int getPasswordHash() {
         return this.passwordHash;
+    }
+
+    public String getTrimmedPassword() {
+        return trimmedPassword;
     }
 }

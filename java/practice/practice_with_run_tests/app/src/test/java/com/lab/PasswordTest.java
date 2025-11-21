@@ -25,8 +25,8 @@ import static org.junit.jupiter.api.Assertions.*;
 public class PasswordTest {
     private IPassword getPassword(String s) throws Exception {
         //return (IPassword) new Password(s);
-        return (IPassword) new BugDoesNotTrim(s);
-        // return (IPassword) new BugToShortPassword(s);
+        //return (IPassword) new BugDoesNotTrim(s);
+        return (IPassword) new BugToShortPassword(s);
         // return (IPassword) new BugToShortPassword(s);
         // return (IPassword) new BugVeryShort(s);
         // return (IPassword) new BugWrongExceptionMessage(s);
@@ -41,11 +41,18 @@ public class PasswordTest {
         assertTrue(true);
     }
 
-    // Test BugsDoesNotTrime(s), trim space in the begining, middle or end of password
+    // Test BugsDoesNotTrime(s), should trim space in the begining, middle or end of password
     @Test
     public void shouldTrimWhitespace() throws Exception {
         BugDoesNotTrim password = new BugDoesNotTrim(" long password14 ");
         assertEquals("longpassword14", password.getTrimmedPassword());
+    }
+
+    //Test BugToShortPassword(s), password cannot be short(<12)
+    @Test 
+    public void passwordNotShort() throws Exception {
+        BugToShortPassword password = new BugToShortPassword("password12");
+        assertEquals("password12", password.getTrimmedPassword());
     }
 
 }
