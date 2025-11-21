@@ -3,6 +3,7 @@ package com.lab;
 // Buggy 2: Allows passwords that are too short
 public class BugVeryShort implements IPassword {
     protected int passwordHash;
+    protected String notVeryShortPassword;
 
     public BugVeryShort(String pw) throws Exception {
         String trimmedPW = pw.trim();
@@ -13,6 +14,7 @@ public class BugVeryShort implements IPassword {
             throw new Exception("Does not contain a number");
         }
         this.passwordHash = simpleHash(trimmedPW);
+        this.notVeryShortPassword = trimmedPW;
     }
     
     private int simpleHash(String input) {
@@ -37,5 +39,9 @@ public class BugVeryShort implements IPassword {
     
     public boolean isPasswordSame(IPassword other) {
         return this.passwordHash == other.getPasswordHash();
+    }
+
+    public String getNotVeryShortPassword() {
+        return notVeryShortPassword;
     }
 }

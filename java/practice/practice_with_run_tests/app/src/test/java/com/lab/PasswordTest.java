@@ -24,11 +24,10 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class PasswordTest {
     private IPassword getPassword(String s) throws Exception {
-        //return (IPassword) new Password(s);
-        //return (IPassword) new BugDoesNotTrim(s);
-        return (IPassword) new BugToShortPassword(s);
+        // return (IPassword) new Password(s);
+        // return (IPassword) new BugDoesNotTrim(s);
         // return (IPassword) new BugToShortPassword(s);
-        // return (IPassword) new BugVeryShort(s);
+           return (IPassword) new BugVeryShort(s);
         // return (IPassword) new BugWrongExceptionMessage(s);
         // return (IPassword) new BugMissingPasswordLengthCheck(s);
         // return (IPassword) new BugMissingNumberCheck(s);
@@ -48,11 +47,18 @@ public class PasswordTest {
         assertEquals("longpassword14", password.getTrimmedPassword()); //length = 14
     }
 
-    //Test BugToShortPassword(s), password cannot be short(<12)
+    // Test BugToShortPassword(s), password cannot be short(<12)
     @Test 
     public void passwordNotShort() throws Exception {
         BugToShortPassword password = new BugToShortPassword("password1234"); //length = 12
         assertEquals("password1234", password.getNotShortPassword());
+    }
+
+    // Test BugVeryShort(String pw), password cannot be too short(<6)
+    @Test
+    public void passwordNotVeryShort() throws Exception {
+        BugVeryShort password = new BugVeryShort("passw");
+        assertEquals("passw", password.getNotVeryShortPassword());
     }
 
 
