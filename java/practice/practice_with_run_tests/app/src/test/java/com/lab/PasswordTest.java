@@ -66,7 +66,7 @@ public class PasswordTest {
         );
     }
 
-   // Test BugRunExceptionMessage(), pass test the message is wrong
+   // Test BugRunExceptionMessage(), pass test the message is wrong, not equal to correct message
    @Test 
    public void wrongExceptionMessage() throws Exception {
        Exception ex = assertThrows (
