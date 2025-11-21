@@ -24,11 +24,11 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class PasswordTest {
     private IPassword getPassword(String s) throws Exception {
-           return (IPassword) new Password(s);
+        // return (IPassword) new Password(s);
         // return (IPassword) new BugDoesNotTrim(s);
         // return (IPassword) new BugToShortPassword(s);
         // return (IPassword) new BugVeryShort(s);
-        // return (IPassword) new BugWrongExceptionMessage(s);
+           return (IPassword) new BugWrongExceptionMessage(s);
         // return (IPassword) new BugMissingPasswordLengthCheck(s);
         // return (IPassword) new BugMissingNumberCheck(s);
         // return (IPassword) new BugIsPasswordSameAlwaysTrue(s);
@@ -56,7 +56,7 @@ public class PasswordTest {
         );
     }
 
-    // Test BugVeryShort(String pw), throw an exception when password length < 6
+    // Test BugVeryShort(String pw), pass test if password length < 6
     @Test
     public void passwordShorterThanSix() throws Exception {
         assertThrows(Exception.class,
@@ -66,4 +66,15 @@ public class PasswordTest {
         );
     }
 
+   // Test BugRunExceptionMessage(), pass test the message is wrong
+   @Test 
+   public void wrongExceptionMessage() throws Exception {
+       Exception ex = assertThrows (
+        Exception.class, 
+        () -> new BugWrongExceptionMessage("short") // Wrong message
+       );
+
+       assertEquals("To short password", ex.getMessage()); // Check if correct and wrong messages are equal
+   }
+       
 }
