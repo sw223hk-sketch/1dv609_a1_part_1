@@ -51,8 +51,9 @@ public class PasswordTest {
     //Test BugToShortPassword(s), password cannot be short(<12)
     @Test 
     public void passwordNotShort() throws Exception {
-        BugToShortPassword password = new BugToShortPassword("password1234"); // length = 12
-        assertEquals("password1234", password.getTrimmedPassword());
+        BugToShortPassword password = new BugToShortPassword("password1234"); //length = 12
+        assertEquals("password1234", password.getNotShortPassword());
     }
+
 
 }

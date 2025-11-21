@@ -1,20 +1,21 @@
 package com.lab;
 
-// Buggy 2: Allows passwords that are too short
+// Buggy 2: Allows passwords that are to short
 public class BugToShortPassword implements IPassword{
     protected int passwordHash;
-    private String trimmedPassword;
+    private String notShortPassword;
 
     public BugToShortPassword(String pw) throws Exception {
         String trimmedPW = pw.trim(); // Remove whitespace
-        if (isToShort(trimmedPW)) {
+
+        if (isToShort(trimmedPW)) { // Throw an exception if trimmed password length < 12
             throw new Exception("To short password");
         }
         if (containsNumber(trimmedPW) == false) {
             throw new Exception("Does not contain a number");
         }
         this.passwordHash = simpleHash(trimmedPW);
-        this.trimmedPassword = trimmedPW;
+        this.notShortPassword = trimmedPW;
     }
 
     private int simpleHash(String input) {
@@ -43,7 +44,7 @@ public class BugToShortPassword implements IPassword{
         return this.passwordHash;
     }
 
-    public String getTrimmedPassword() {
-        return trimmedPassword;
+    public String getNotShortPassword() {
+        return notShortPassword;
     }
 }
