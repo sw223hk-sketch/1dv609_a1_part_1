@@ -3,21 +3,18 @@ package com.lab;
 // Buggy 1: Does not trim whitespace
 class BugDoesNotTrim implements IPassword {
     protected int passwordHash;
-    private String trimmedPassword; // trimmed password for testing
     
     // Trim white space, check length (>12), and contain a number
     public BugDoesNotTrim(String pw) throws Exception {
         // Bug: Don't trim whitespace
-        String trimmed_password = pw.replaceAll("\\s", ""); // remove all space 
 
-        if (isToShort(trimmed_password)) {
+        if (isToShort(pw)) {
             throw new Exception("To short password");
         }
-        if (containsNumber(trimmed_password) == false) {
+        if (containsNumber(pw) == false) {
             throw new Exception("Does not contain a number");
         }
-        this.passwordHash = simpleHash(trimmed_password); // store hash value of pw in passwordHash 
-        this.trimmedPassword = trimmed_password; // stores trimmed_password in trimmed_pw
+        this.passwordHash = simpleHash(pw); // store hash value of pw in passwordHash 
     }
     
     private int simpleHash(String input) {
@@ -38,11 +35,6 @@ class BugDoesNotTrim implements IPassword {
     
     public int getPasswordHash() {
         return this.passwordHash;
-    }
-
-
-    public String getTrimmedPassword() {
-        return trimmedPassword;
     }
     
     public boolean isPasswordSame(IPassword other) {
