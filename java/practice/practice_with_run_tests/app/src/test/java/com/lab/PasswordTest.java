@@ -54,12 +54,14 @@ public class PasswordTest {
         assertEquals("password1234", password.getNotShortPassword());
     }
 
-    // Test BugVeryShort(String pw), password cannot be too short(<6)
+    // Test BugVeryShort(String pw), throw an exception when password length < 6
     @Test
-    public void passwordNotVeryShort() throws Exception {
-        BugVeryShort password = new BugVeryShort("passw");
-        assertEquals("passw", password.getNotVeryShortPassword());
+    public void passwordShorterThanSix() throws Exception {
+        assertThrows(Exception.class,
+            () -> {
+                new BugVeryShort("pass1"); 
+            }
+        );
     }
-
 
 }

@@ -47,4 +47,5 @@ public class BugToShortPassword implements IPassword{
     public String getNotShortPassword() {
         return notShortPassword;
     }
+    
 }
