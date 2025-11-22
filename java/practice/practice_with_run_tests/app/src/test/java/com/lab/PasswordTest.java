@@ -31,8 +31,8 @@ public class PasswordTest {
         // return (IPassword) new BugWrongExceptionMessage(s);
         // return (IPassword) new BugMissingPasswordLengthCheck(s);
         // return (IPassword) new BugMissingNumberCheck(s);
-         return (IPassword) new BugIsPasswordSameAlwaysTrue(s);
-        // return (IPassword) new BugWrongHashingAlgorithm(s);
+        // return (IPassword) new BugIsPasswordSameAlwaysTrue(s);
+           return (IPassword) new BugWrongHashingAlgorithm(s);
     }
 
     @Test
@@ -98,5 +98,14 @@ public class PasswordTest {
         BugIsPasswordSameAlwaysTrue password2 = new BugIsPasswordSameAlwaysTrue("password5678");
 
         assertTrue(password1.isPasswordSame(password2)); // compare if they are the same, it shows true
+   }
+
+   // Test BugWrongHashingAlgorithm(s), pass test if -- different passwords have same hash value
+   @Test
+   public void wrongHashingLeadsCollision() throws Exception {
+        BugWrongHashingAlgorithm password1 = new BugWrongHashingAlgorithm("abcd12345678"); // create revessable passwords
+        BugWrongHashingAlgorithm password2 = new BugWrongHashingAlgorithm("87654321dcba"); 
+        
+        assertEquals(password1.getPasswordHash(), password2.getPasswordHash());
    }
 }

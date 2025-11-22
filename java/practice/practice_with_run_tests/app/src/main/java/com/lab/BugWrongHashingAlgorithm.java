@@ -19,7 +19,7 @@ public class BugWrongHashingAlgorithm implements IPassword{
         for (int i = 0; i < input.length(); i++) {
             hash += input.charAt(i);
         }
-        return hash % 5;
+        return hash % 5; // 'ab' and 'ba' have the same hash value
     }
 
     private boolean isToShort(String pw) {
