@@ -28,8 +28,8 @@ public class PasswordTest {
         // return (IPassword) new BugDoesNotTrim(s);
         // return (IPassword) new BugToShortPassword(s);
         // return (IPassword) new BugVeryShort(s);
-           return (IPassword) new BugWrongExceptionMessage(s);
-        // return (IPassword) new BugMissingPasswordLengthCheck(s);
+        // return (IPassword) new BugWrongExceptionMessage(s);
+           return (IPassword) new BugMissingPasswordLengthCheck(s);
         // return (IPassword) new BugMissingNumberCheck(s);
         // return (IPassword) new BugIsPasswordSameAlwaysTrue(s);
         // return (IPassword) new BugWrongHashingAlgorithm(s);
@@ -66,15 +66,21 @@ public class PasswordTest {
         );
     }
 
-   // Test BugRunExceptionMessage(), pass test the message is wrong, not equal to correct message
+   // Test BugRunExceptionMessage(), pass test if the message is wrong, not equal to correct message
    @Test 
    public void wrongExceptionMessage() throws Exception {
-       Exception ex = assertThrows (
-        Exception.class, 
-        () -> new BugWrongExceptionMessage("short") // Wrong message
-       );
+        Exception ex = assertThrows (
+            Exception.class, 
+            () -> new BugWrongExceptionMessage("short") // Wrong message
+        );
 
        assertNotEquals("To short password", ex.getMessage()); // Check if correct and wrong messages are equal
    }
        
+   // Test BugMissingPasswordLength(), pass test if fail to check length(<12)
+   @Test
+   public void passwordLengthCheckMissing() throws Exception {
+       BugMissingPasswordLengthCheck password = new BugMissingPasswordLengthCheck("password1"); // contain a number to meet another condition
+       assertNull(password); 
+   }
 }
