@@ -30,8 +30,8 @@ public class PasswordTest {
         // return (IPassword) new BugVeryShort(s);
         // return (IPassword) new BugWrongExceptionMessage(s);
         // return (IPassword) new BugMissingPasswordLengthCheck(s);
-           return (IPassword) new BugMissingNumberCheck(s);
-        // return (IPassword) new BugIsPasswordSameAlwaysTrue(s);
+        // return (IPassword) new BugMissingNumberCheck(s);
+         return (IPassword) new BugIsPasswordSameAlwaysTrue(s);
         // return (IPassword) new BugWrongHashingAlgorithm(s);
     }
 
@@ -89,5 +89,14 @@ public class PasswordTest {
    public void passwordNumberCheckMissing() throws Exception {
         BugMissingNumberCheck password = new BugMissingNumberCheck("longpassword"); // length should be > 12 but without a number
         assertNotNull(password); // password created without if contain numbers check
+   }
+
+   // Test BugIsPasswordSameAlwaysTrue(), pass test if true -- different passwords shows same result
+   @Test
+   public void passwordIsSame() throws Exception {
+        BugIsPasswordSameAlwaysTrue password1 = new BugIsPasswordSameAlwaysTrue("password1234");
+        BugIsPasswordSameAlwaysTrue password2 = new BugIsPasswordSameAlwaysTrue("password5678");
+
+        assertFalse(password1.isPasswordSame(password2));
    }
 }
