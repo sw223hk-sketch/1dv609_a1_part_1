@@ -94,9 +94,9 @@ public class PasswordTest {
    // Test BugIsPasswordSameAlwaysTrue(), pass test if true -- different passwords shows same result
    @Test
    public void passwordIsSame() throws Exception {
-        BugIsPasswordSameAlwaysTrue password1 = new BugIsPasswordSameAlwaysTrue("password1234");
+        BugIsPasswordSameAlwaysTrue password1 = new BugIsPasswordSameAlwaysTrue("password1234"); // create 2 different passwords
         BugIsPasswordSameAlwaysTrue password2 = new BugIsPasswordSameAlwaysTrue("password5678");
 
-        assertTrue(password1.isPasswordSame(password2)); 
+        assertTrue(password1.isPasswordSame(password2)); // compare if they are the same, it shows true
    }
 }
