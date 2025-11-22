@@ -106,6 +106,6 @@ public class PasswordTest {
         BugWrongHashingAlgorithm password1 = new BugWrongHashingAlgorithm("abcd12345678"); // create revessable passwords
         BugWrongHashingAlgorithm password2 = new BugWrongHashingAlgorithm("87654321dcba"); 
         
-        assertEquals(password1.getPasswordHash(), password2.getPasswordHash());
+        assertEquals(password1.getPasswordHash(), password2.getPasswordHash()); // different pw supposed to have different hash values
    }
 }
