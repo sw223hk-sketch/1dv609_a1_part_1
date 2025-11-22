@@ -42,13 +42,13 @@ public class PasswordTest {
 
     // Test BugsDoesNotTrime(s), does not trim space in the begining or at the end of password
     @Test
-    public void doesNotTrimWhitespace() throws Exception {
+    public void shouldThrowExceptionOnNotTrimWhitespace() throws Exception {
         assertNotEquals("longPasswor1", new BugDoesNotTrim(" longPasswor1 ")); //length = 12
     }
 
     // Test BugToShortPassword(s), throw an exception when password length < 11
     @Test 
-    public void passwordShorterThanEleven() throws Exception {
+    public void shouldThrowExceptionOnPasswordShorterThanEleven() throws Exception {
         assertThrows(Exception.class, 
             () -> {
                 new BugToShortPassword("password12"); // length = 10
@@ -58,7 +58,7 @@ public class PasswordTest {
 
     // Test BugVeryShort(String pw), pass test if password length < 6
     @Test
-    public void passwordShorterThanSix() throws Exception {
+    public void shouldThrowExceptionOnPasswordShorterThanSix() throws Exception {
         assertThrows(Exception.class,
             () -> {
                 new BugVeryShort("pass1"); // length = 5
@@ -68,7 +68,7 @@ public class PasswordTest {
 
    // Test BugRunExceptionMessage(), pass test if the message is wrong, not equal to correct message
    @Test 
-   public void wrongExceptionMessage() throws Exception {
+   public void shouldThrowExceptionOnWrongExceptionMessage() throws Exception {
         Exception ex = assertThrows (
             Exception.class, 
             () -> new BugWrongExceptionMessage("short") // Wrong message
@@ -79,21 +79,21 @@ public class PasswordTest {
        
    // Test BugMissingPasswordLength(), pass test if fail to check length(<12)
    @Test
-   public void passwordLengthCheckMissing() throws Exception {
+   public void shouldThrowExceptionOnPasswordWithoutLengthChecking() throws Exception {
         BugMissingPasswordLengthCheck password = new BugMissingPasswordLengthCheck("password1"); // contain a number to meet another condition, but short
         assertNotNull(password); // password is created with unchecked length, which means password not null
    }
 
    // Test BugMissingNumberCheck(), pass test if fail to check password contains number
    @Test
-   public void passwordNumberCheckMissing() throws Exception {
+   public void shouldThrowExceptionOnPasswordWithoutNumber() throws Exception {
         BugMissingNumberCheck password = new BugMissingNumberCheck("longpassword"); // length should be > 12 but without a number
         assertNotNull(password); // password created without if contain numbers check
    }
 
    // Test BugIsPasswordSameAlwaysTrue(), pass test if true -- different passwords shows same result
    @Test
-   public void passwordIsSame() throws Exception {
+   public void shouldThrowExceptionOnPasswordSameAlwaysTrue() throws Exception {
         BugIsPasswordSameAlwaysTrue password1 = new BugIsPasswordSameAlwaysTrue("password1234"); // create 2 different passwords
         BugIsPasswordSameAlwaysTrue password2 = new BugIsPasswordSameAlwaysTrue("password5678");
 
@@ -102,7 +102,7 @@ public class PasswordTest {
 
    // Test BugWrongHashingAlgorithm(s), pass test if -- different passwords have same hash value
    @Test
-   public void wrongHashingLeadsCollision() throws Exception {
+   public void shouldThrowExceptionOnWrongHashingAlgorithm() throws Exception {
         BugWrongHashingAlgorithm password1 = new BugWrongHashingAlgorithm("abcd12345678"); // create revessable passwords
         BugWrongHashingAlgorithm password2 = new BugWrongHashingAlgorithm("87654321dcba"); 
         
