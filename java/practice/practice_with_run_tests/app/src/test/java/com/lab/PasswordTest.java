@@ -81,6 +81,6 @@ public class PasswordTest {
    @Test
    public void passwordLengthCheckMissing() throws Exception {
        BugMissingPasswordLengthCheck password = new BugMissingPasswordLengthCheck("password1"); // contain a number to meet another condition
-       assertNotNull(password); 
+       assertNotNull(password); // password is created with unchecked length, which means password not null
    }
 }
