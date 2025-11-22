@@ -29,8 +29,8 @@ public class PasswordTest {
         // return (IPassword) new BugToShortPassword(s);
         // return (IPassword) new BugVeryShort(s);
         // return (IPassword) new BugWrongExceptionMessage(s);
-           return (IPassword) new BugMissingPasswordLengthCheck(s);
-        // return (IPassword) new BugMissingNumberCheck(s);
+        // return (IPassword) new BugMissingPasswordLengthCheck(s);
+           return (IPassword) new BugMissingNumberCheck(s);
         // return (IPassword) new BugIsPasswordSameAlwaysTrue(s);
         // return (IPassword) new BugWrongHashingAlgorithm(s);
     }
@@ -80,7 +80,14 @@ public class PasswordTest {
    // Test BugMissingPasswordLength(), pass test if fail to check length(<12)
    @Test
    public void passwordLengthCheckMissing() throws Exception {
-       BugMissingPasswordLengthCheck password = new BugMissingPasswordLengthCheck("password1"); // contain a number to meet another condition
-       assertNotNull(password); // password is created with unchecked length, which means password not null
+        BugMissingPasswordLengthCheck password = new BugMissingPasswordLengthCheck("password1"); // contain a number to meet another condition, but short
+        assertNotNull(password); // password is created with unchecked length, which means password not null
+   }
+
+   // Test BugMissingNumberCheck(), pass test if fail to check password contains number
+   @Test
+   public void passwordNumberCheckMissing() throws Exception {
+        BugMissingNumberCheck password = new BugMissingNumberCheck("longpassword"); // length should be > 12 but without a number
+        assertNull(password); 
    }
 }
