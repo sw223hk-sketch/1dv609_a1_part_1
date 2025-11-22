@@ -88,6 +88,6 @@ public class PasswordTest {
    @Test
    public void passwordNumberCheckMissing() throws Exception {
         BugMissingNumberCheck password = new BugMissingNumberCheck("longpassword"); // length should be > 12 but without a number
-        assertNull(password); 
+        assertNotNull(password); // password created without if contain numbers check
    }
 }
