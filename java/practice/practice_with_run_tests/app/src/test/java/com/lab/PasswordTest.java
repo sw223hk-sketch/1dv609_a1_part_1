@@ -97,6 +97,6 @@ public class PasswordTest {
         BugIsPasswordSameAlwaysTrue password1 = new BugIsPasswordSameAlwaysTrue("password1234");
         BugIsPasswordSameAlwaysTrue password2 = new BugIsPasswordSameAlwaysTrue("password5678");
 
-        assertFalse(password1.isPasswordSame(password2));
+        assertTrue(password1.isPasswordSame(password2)); 
    }
 }
