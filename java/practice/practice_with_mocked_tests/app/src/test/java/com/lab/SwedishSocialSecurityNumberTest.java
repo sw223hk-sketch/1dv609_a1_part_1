@@ -32,7 +32,7 @@ public class SwedishSocialSecurityNumberTest {
     }
     
 
-    //  Correct helper should accept day 31
+    //  Correct mockHelper should accept day 31
     @Test
     public void shouldAcceptValidDay() throws Exception {
         // MockHelper works
@@ -46,5 +46,22 @@ public class SwedishSocialSecurityNumberTest {
 
         // Verify mock methods are called and day 31 is verified
         verify(mockHelper).isValidDay("31"); 
+    }
+
+    // Correct mockHelper should accpect month 0
+    @Test 
+    public void shouldAcceptValidMonth() throws Exception {
+        // MockeHelper works
+        when(mockHelper.isCorrectLength("900031-1234")).thenReturn(true);
+        when(mockHelper.isCorrectFormat("900031-1234")).thenReturn(true);
+        when(mockHelper.isValidMonth("00")).thenReturn(true);
+        when(mockHelper.isValidDay("31")).thenReturn(true);
+        when(mockHelper.luhnIsCorrect("900031-1234")).thenReturn(true);
+
+        // Create new SSN, pass by mockHelper
+        SwedishSocialSecurityNumber ssn = new SwedishSocialSecurityNumber("900031-1234", mockHelper);
+
+        // Verify mock methods are called and month 0 is verified
+        verify(mockHelper).isValidMonth("00");
     }
 }
