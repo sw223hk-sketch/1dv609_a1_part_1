@@ -7,7 +7,8 @@ public class BuggySSNHelperAllowDayUpTo30 {
     }
     
     public boolean isCorrectFormat(String stringInput) {
-        return stringInput.matches("^\\d{6}-\\d{4}$");
+        //Correct format YYMMDD-XXXX
+        return stringInput.matches("^\\d{6}-\\d{4}$"); // ^ / $, start and end of the string, \\d{6} six digits: YYMMDD
     }
     
     public boolean isValidMonth(String monthString) {

@@ -7,8 +7,9 @@ public class BuggySSNHelperAllowMonth0 {
     }
     
     public boolean isCorrectFormat(String stringInput) {
-        return stringInput.matches("^\\d{6}-\\d{4}$");
-    }
+        //Correct format YYMMDD-XXXX
+        return stringInput.matches("^\\d{6}-\\d{4}$"); 
+    } 
     
     public boolean isValidMonth(String monthString) {
         int month = Integer.parseInt(monthString);
