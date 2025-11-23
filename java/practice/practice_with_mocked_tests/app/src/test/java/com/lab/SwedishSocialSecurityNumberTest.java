@@ -65,7 +65,7 @@ public class SwedishSocialSecurityNumberTest {
         verify(mockHelper).isValidMonth("00");
     }
 
-    // Correct mockHelper should reject incorrect format 
+    // Correct mockHelper should accept incorrect format 
     @Test 
     public void shouldRejectIncorrectFormat() throws Exception {
         // MockeHelper works
@@ -99,7 +99,20 @@ public class SwedishSocialSecurityNumberTest {
         verify(mockHelper).isCorrectFormat("900101-0017");
     }
 
-    // Correct mockHelper should accepct correct Luhn algorithm
-       
+    // Correct mockHelper should accept messy Luhn algorithm
+    @Test
+    public void shouldAcceptMessyLugn() throws Exception {
+        // MockeHelper works
+        when(mockHelper.isCorrectLength("900101-1234")).thenReturn(true);
+        when(mockHelper.isCorrectFormat("900101-1234")).thenReturn(true);
+        when(mockHelper.isValidMonth("01")).thenReturn(true);
+        when(mockHelper.isValidDay("01")).thenReturn(true);
+        when(mockHelper.luhnIsCorrect("900101-1234")).thenReturn(true);
 
+        // Create new SSN, pass by mockHelper
+        SwedishSocialSecurityNumber ssn = new SwedishSocialSecurityNumber("900101-1234", mockHelper);
+
+        // Verify mock methods are called and format is verified
+        verify(mockHelper).luhnIsCorrect("900101-1234");
+    }
 }
