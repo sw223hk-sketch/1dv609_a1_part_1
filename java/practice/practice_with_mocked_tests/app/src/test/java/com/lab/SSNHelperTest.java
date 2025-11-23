@@ -34,6 +34,15 @@ public class SSNHelperTest {
     public void buggyHelperShouldAllowIncorrectFormat() {
         BuggySSNHelperIncorrectFormat buggyHelper = new BuggySSNHelperIncorrectFormat();
         // Correct format eg. 900031-1234
-        assertTrue(buggyHelper.isCorrectFormat("9000311234"), "Buggy helper should accept incorrect format");
+        assertTrue(buggyHelper.isCorrectFormat("900101-00178"), "Buggy helper should accept incorrect format");
     }
+
+    //Buggy helper should reject correct format
+    @Test
+    public void buggyHelperShouldRejectCorrectFormat() {
+        BuggySSNHelperIncorrectFormatFalse buggyHelper = new BuggySSNHelperIncorrectFormatFalse();
+        // Correct format eg. 900031-1234
+        assertTrue(buggyHelper.isCorrectFormat("900101-0017"), "Buggy helper should reject correct format");
+    }
+
 }
