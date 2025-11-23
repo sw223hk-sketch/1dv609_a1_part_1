@@ -29,7 +29,7 @@ public class SSNHelperTest {
         assertTrue(buggyHelper.isValidMonth("0"), "Buggy helper should accept month 0");
     }
 
-    //Buggy helper should reject incorrect format
+    //Buggy helper should accpept incorrect format
     @Test
     public void buggyHelperShouldAllowIncorrectFormat() {
         BuggySSNHelperIncorrectFormat buggyHelper = new BuggySSNHelperIncorrectFormat();
