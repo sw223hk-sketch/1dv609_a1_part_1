@@ -107,4 +107,17 @@ public class SSNHelperTest {
     public void correctHelperShouldRejectWrongLength() {
         assertFalse(helper.isCorrectLength("900101-00170")); // should be == 11
     }
+
+    /* TEST NO LENGTH CHECK
+     */
+    //Buggy helper should have no length check, when length > or < 11 it throws an exception
+    @Test
+    public void buggyHelperShouldAcceptLengthNot11() {
+        assertThrows(
+            Exception.class,
+            () -> new BuggySwedishSocialSecurityNumberNoLenCheck("900101-001", helper) // length = 10, throws an exception
+        );
+    }
+
+
 }

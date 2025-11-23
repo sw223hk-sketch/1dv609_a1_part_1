@@ -132,4 +132,21 @@ public class SwedishSocialSecurityNumberTest {
         // Verify mock methods is called and length is verified
         verify(mockHelper).isCorrectLength("900101-00170");
     }
+
+    // Correct mockHelper should accept no length check
+    @Test
+    public void shouldAcceptNoLengthCheck() throws Exception {
+        // MockeHelper works
+        when(mockHelper.isCorrectLength("900101-001")).thenReturn(true);
+        when(mockHelper.isCorrectFormat("900101-001")).thenReturn(true);
+        when(mockHelper.isValidMonth("01")).thenReturn(true);
+        when(mockHelper.isValidDay("01")).thenReturn(true);
+        when(mockHelper.luhnIsCorrect("900101-001")).thenReturn(true);
+
+        // Create new SSN, pass by mockHelper
+        SwedishSocialSecurityNumber ssn = new SwedishSocialSecurityNumber("900101-001", mockHelper);
+
+        // Verify mock methods is called and length is verified
+        verify(mockHelper).isCorrectLength("900101-001");
+    }
 }
