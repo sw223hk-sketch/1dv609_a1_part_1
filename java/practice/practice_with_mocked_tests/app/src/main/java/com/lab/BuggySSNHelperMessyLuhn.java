@@ -30,7 +30,7 @@ public class BuggySSNHelperMessyLuhn {
             if (i % 2 == 0) {
                 digit *= 2;
                 if (digit > 9) {
-                    digit -= 11;
+                    digit -= 11; // this breaks checksum
                 }
             }
             sum += digit;

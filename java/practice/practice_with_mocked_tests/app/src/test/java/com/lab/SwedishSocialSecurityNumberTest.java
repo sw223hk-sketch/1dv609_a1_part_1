@@ -82,7 +82,7 @@ public class SwedishSocialSecurityNumberTest {
         verify(mockHelper).isCorrectFormat("900101-00178");
     }
 
-    // Correct mockHelper should accpect correct format 
+    // Correct mockHelper should accepct correct format 
     @Test 
     public void shouldAcceptCorrectFormat() throws Exception {
         // MockeHelper works
@@ -98,5 +98,8 @@ public class SwedishSocialSecurityNumberTest {
         // Verify mock methods are called and format is verified
         verify(mockHelper).isCorrectFormat("900101-0017");
     }
+
+    // Correct mockHelper should accepct correct Luhn algorithm
+       
 
 }

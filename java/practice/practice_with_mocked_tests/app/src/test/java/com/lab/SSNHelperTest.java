@@ -76,4 +76,15 @@ public class SSNHelperTest {
     public void correctHelperShouldAcceptCorrectFormat() {
         assertTrue(helper.isCorrectFormat("900101-0017"), "Correct helper should reject correct format");
     }
+
+    /* TEST MESSY LUHN
+     */
+    //Buggy helper should accept messy Luhn algorithm
+    @Test
+    public void buggyHelperShouldAcceptMessyLuhn() {
+        BuggySSNHelperMessyLuhn buggyHelper = new BuggySSNHelperMessyLuhn();
+        //Correct ssn is 900101-0017
+        assertTrue(buggyHelper.luhnIsCorrect("900101-1234"), "Buggy helper should accept messy Luhn");
+    }
+
 }
