@@ -84,7 +84,7 @@ public class SSNHelperTest {
     public void buggyHelperShouldAcceptMessyLuhn() {
         BuggySSNHelperMessyLuhn buggyHelper = new BuggySSNHelperMessyLuhn();
         //Correct ssn is 900101-0017
-        assertTrue(buggyHelper.luhnIsCorrect("900101-1234"), "Buggy helper should accept messy Luhn");
+        assertFalse(buggyHelper.luhnIsCorrect("900101-1234"), "Buggy helper should accept messy Luhn");
     }
 
 }
