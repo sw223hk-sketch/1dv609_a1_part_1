@@ -87,4 +87,10 @@ public class SSNHelperTest {
         assertFalse(buggyHelper.luhnIsCorrect("900101-1234"), "Buggy helper should accept messy Luhn");
     }
 
+    //Correct helper should reject incorrect Luhn algorithm
+    @Test
+    public void correctHelperShouldRejectMessyLuhn() {
+        assertFalse(helper.luhnIsCorrect("900101-1234"), "Correct helper should reject messy Luhn");
+    }
+
 }
