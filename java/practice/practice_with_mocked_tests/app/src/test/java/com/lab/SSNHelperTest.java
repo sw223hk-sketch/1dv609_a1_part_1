@@ -105,6 +105,6 @@ public class SSNHelperTest {
     //Correct helper should reject wrong length(>11)
     @Test
     public void correctHelperShouldRejectWrongLength() {
-        assertTrue(helper.isCorrectLength("900101-00170")); // should be == 11
+        assertFalse(helper.isCorrectLength("900101-00170")); // should be == 11
     }
 }
