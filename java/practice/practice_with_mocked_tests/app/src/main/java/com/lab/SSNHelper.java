@@ -21,6 +21,7 @@ public class SSNHelper {
         return day >= 1 && day <= 31;
     }
     
+    // 论算法，校验码算法
     public boolean luhnIsCorrect(String stringInput) {
         // Remove hyphen and convert to array of digits
         String digitsOnly = stringInput.replace("-", "");
