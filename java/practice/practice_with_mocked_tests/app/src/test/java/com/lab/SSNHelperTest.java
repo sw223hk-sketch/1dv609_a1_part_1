@@ -14,7 +14,8 @@ public class SSNHelperTest {
     public void setUp() {
         helper = new SSNHelper();  //use SSN helper
     }
-    
+    /* TEST DAY
+     */
     //Buggy helper should reject day 31
     @Test
     public void buggyHelperShouldRejectDay31() {
@@ -22,14 +23,30 @@ public class SSNHelperTest {
         assertFalse(buggyHelper.isValidDay("31"), "Buggy helper should reject day 31");
     }
 
-    //Buggy helper should reject month 0
+    //Correct helper should accept day 31
+    @Test
+    public void correctHelperShouldAcceptDay31() {
+        assertTrue(helper.isValidDay("31"));
+    }
+
+    /* TEST MONTH
+     */
+    //Buggy helper should allow month 0
     @Test
     public void buggyHelperShouldAllowMonth0() {
         BuggySSNHelperAllowMonth0 buggyHelper = new BuggySSNHelperAllowMonth0();
-        assertTrue(buggyHelper.isValidMonth("0"), "Buggy helper should accept month 0");
+        assertTrue(buggyHelper.isValidMonth("00"), "Buggy helper should accept month 0");
     }
 
-    //Buggy helper should accpept incorrect format
+    //Correct helper should reject month 0
+    @Test
+    public void correctHelperShouldRejectMonth0() {
+        assertFalse(helper.isValidMonth("00"), "Correct helper should reject month 0");
+    }
+
+    /* TEST INCORRECT FORMAT
+     */
+    //Buggy helper should accept incorrect format
     @Test
     public void buggyHelperShouldAllowIncorrectFormat() {
         BuggySSNHelperIncorrectFormat buggyHelper = new BuggySSNHelperIncorrectFormat();
@@ -37,6 +54,15 @@ public class SSNHelperTest {
         assertTrue(buggyHelper.isCorrectFormat("900101-00178"), "Buggy helper should accept incorrect format");
     }
 
+    //Correct helper should reject incorrect format
+    @Test
+    public void correctHelperShouldRejectIncorrectFormat() {
+        // Correct format eg. 900031-1234
+        assertFalse(helper.isCorrectFormat("900101-00178"), "Correct helper should reject incorrect format");
+    }
+
+    /* TEST CORRECT FORMAT
+     */
     //Buggy helper should reject correct format
     @Test
     public void buggyHelperShouldRejectCorrectFormat() {
@@ -45,4 +71,9 @@ public class SSNHelperTest {
         assertFalse(buggyHelper.isCorrectFormat("900101-0017"), "Buggy helper should reject correct format");
     }
 
+    //Correct helper should accept correct format
+    @Test
+    public void correctHelperShouldAcceptCorrectFormat() {
+        assertTrue(helper.isCorrectFormat("900101-0017"), "Correct helper should reject correct format");
+    }
 }
