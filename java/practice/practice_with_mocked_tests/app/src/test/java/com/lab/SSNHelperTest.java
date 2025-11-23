@@ -84,13 +84,22 @@ public class SSNHelperTest {
     public void buggyHelperShouldAcceptMessyLuhn() {
         BuggySSNHelperMessyLuhn buggyHelper = new BuggySSNHelperMessyLuhn();
         //Correct ssn is 900101-0017
-        assertFalse(buggyHelper.luhnIsCorrect("900101-1234"), "Buggy helper should accept messy Luhn");
+        assertTrue(buggyHelper.luhnIsCorrect("900101-2346"), "Buggy helper should accept messy Luhn");
     }
 
     //Correct helper should reject incorrect Luhn algorithm
     @Test
     public void correctHelperShouldRejectMessyLuhn() {
-        assertFalse(helper.luhnIsCorrect("900101-1234"), "Correct helper should reject messy Luhn");
+        assertFalse(helper.luhnIsCorrect("900101-2346"), "Correct helper should reject messy Luhn");
+    }
+
+    /* TEST WRONG LENGTH
+     */
+    //Buggy helper should accept wrong length(>11)
+    @Test
+    public void buggyHelperShouldAcceptWrongLength() {
+        BuggySSNHelperWrongLength buggyHelper = new BuggySSNHelperWrongLength();
+        assertTrue(buggyHelper.isCorrectLength("900101-00170")); // should be == 11
     }
 
 }

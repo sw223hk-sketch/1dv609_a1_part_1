@@ -103,16 +103,16 @@ public class SwedishSocialSecurityNumberTest {
     @Test
     public void shouldAcceptMessyLugn() throws Exception {
         // MockeHelper works
-        when(mockHelper.isCorrectLength("900101-1234")).thenReturn(true);
-        when(mockHelper.isCorrectFormat("900101-1234")).thenReturn(true);
+        when(mockHelper.isCorrectLength("900101-2346")).thenReturn(true);
+        when(mockHelper.isCorrectFormat("900101-2346")).thenReturn(true);
         when(mockHelper.isValidMonth("01")).thenReturn(true);
         when(mockHelper.isValidDay("01")).thenReturn(true);
-        when(mockHelper.luhnIsCorrect("900101-1234")).thenReturn(true);
+        when(mockHelper.luhnIsCorrect("900101-2346")).thenReturn(true);
 
         // Create new SSN, pass by mockHelper
-        SwedishSocialSecurityNumber ssn = new SwedishSocialSecurityNumber("900101-1234", mockHelper);
+        SwedishSocialSecurityNumber ssn = new SwedishSocialSecurityNumber("900101-2346", mockHelper);
 
         // Verify mock methods are called and format is verified
-        verify(mockHelper).luhnIsCorrect("900101-1234");
+        verify(mockHelper).luhnIsCorrect("900101-2346");
     }
 }
