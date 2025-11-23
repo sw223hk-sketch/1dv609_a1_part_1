@@ -26,6 +26,6 @@ public class SSNHelperTest {
     @Test
     public void buggyHelperShouldAllowMonth0() {
         BuggySSNHelperAllowMonth0 buggyHelper = new BuggySSNHelperAllowMonth0();
-        assertFalse(buggyHelper.isValidMonth("0"), "Buggy helper should accpet month 0");
+        assertTrue(buggyHelper.isValidMonth("0"), "Buggy helper should accpet month 0");
     }
 }
