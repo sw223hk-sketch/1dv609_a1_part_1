@@ -44,7 +44,7 @@ public class SwedishSocialSecurityNumberTest {
 
         SwedishSocialSecurityNumber ssn = new SwedishSocialSecurityNumber("900131-1234", mockHelper);
 
-        // Verify mock methods are called and day 31 is verified
+        // Verify mock methods is called and day 31 is verified
         verify(mockHelper).isValidDay("31"); 
     }
 
@@ -61,7 +61,7 @@ public class SwedishSocialSecurityNumberTest {
         // Create new SSN, pass by mockHelper
         SwedishSocialSecurityNumber ssn = new SwedishSocialSecurityNumber("900031-1234", mockHelper);
 
-        // Verify mock methods are called and month 0 is verified
+        // Verify mock methods is called and month 0 is verified
         verify(mockHelper).isValidMonth("00");
     }
 
@@ -78,7 +78,7 @@ public class SwedishSocialSecurityNumberTest {
         // Create new SSN, pass by mockHelper
         SwedishSocialSecurityNumber ssn = new SwedishSocialSecurityNumber("900101-00178", mockHelper);
 
-        // Verify mock methods are called and format is verified
+        // Verify mock methods is called and format is verified
         verify(mockHelper).isCorrectFormat("900101-00178");
     }
 
@@ -95,7 +95,7 @@ public class SwedishSocialSecurityNumberTest {
         // Create new SSN, pass by mockHelper
         SwedishSocialSecurityNumber ssn = new SwedishSocialSecurityNumber("900101-0017", mockHelper);
 
-        // Verify mock methods are called and format is verified
+        // Verify mock methods is called and format is verified
         verify(mockHelper).isCorrectFormat("900101-0017");
     }
 
@@ -112,7 +112,24 @@ public class SwedishSocialSecurityNumberTest {
         // Create new SSN, pass by mockHelper
         SwedishSocialSecurityNumber ssn = new SwedishSocialSecurityNumber("900101-2346", mockHelper);
 
-        // Verify mock methods are called and format is verified
+        // Verify mock methods is called and format is verified
         verify(mockHelper).luhnIsCorrect("900101-2346");
+    }
+
+    // Correct mockHelper should accept wrong length
+    @Test
+    public void shouldAcceptWrongLength() throws Exception {
+        // MockeHelper works
+        when(mockHelper.isCorrectLength("900101-00170")).thenReturn(true);
+        when(mockHelper.isCorrectFormat("900101-00170")).thenReturn(true);
+        when(mockHelper.isValidMonth("01")).thenReturn(true);
+        when(mockHelper.isValidDay("01")).thenReturn(true);
+        when(mockHelper.luhnIsCorrect("900101-00170")).thenReturn(true);
+
+        // Create new SSN, pass by mockHelper
+        SwedishSocialSecurityNumber ssn = new SwedishSocialSecurityNumber("900101-00170", mockHelper);
+
+        // Verify mock methods is called and length is verified
+        verify(mockHelper).isCorrectLength("900101-00170");
     }
 }
