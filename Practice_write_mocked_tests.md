@@ -28,7 +28,7 @@ A bug in the SwedishSecurityNumber must not fail due to a bug in SSNHelper.
     * Test the Helper and SwedishSecurityNumber  classes independently of each other
         * Tests for SwedishSecurityNumber  should only fail if the bug is in SwedishSecurityNumber  class
         * Tests for Helper should only fail if the bug is in Helper class
-* Only one expect/assert/verify per test unless motivated
+* Only per t one expect/assert/verifyest unless motivated
 * Show tests and bug fail matrix as in previous task
 * Add additional tests to increase coverage, but only if each test has value
   * Show that the additional tests has value by creating a bug that fails that test!

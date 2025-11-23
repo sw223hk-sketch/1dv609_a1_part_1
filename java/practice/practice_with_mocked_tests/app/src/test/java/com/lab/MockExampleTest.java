@@ -18,7 +18,7 @@ public class MockExampleTest {
     
     @BeforeEach
     public void setUp() {
-        mockHelper = mock(SSNHelper.class);
+        mockHelper = mock(SSNHelper.class); // create a fake object to work for
     }
     
     @Test
