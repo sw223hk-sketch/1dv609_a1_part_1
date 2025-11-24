@@ -110,23 +110,34 @@ public class SSNHelperTest {
 
     /* TEST NO LENGTH CHECK
      */
-    //Buggy helper should have no length check, when length > or < 11 it throws an exception
+    //Buggy helper should have no length check, when length > or < 11 it throws an exception and get caught by assertThrows
     @Test
     public void buggyHelperShouldAcceptLengthNot11() {
         assertThrows(
             Exception.class,
-            () -> new BuggySwedishSocialSecurityNumberNoLenCheck("900101-001", helper) // length = 10, throws an exception
+            () -> new BuggySwedishSocialSecurityNumberNoLenCheck("900101-001", helper) // length = 10, catches an exception
         );
     }
 
     /* TEST NO LUHN CHECK
      */
-    //Buggy helper should have no Lhn check, when Lugn incorrect it throws an exception
+    //Buggy helper should have no Lhn check, when Lugn incorrect it throws an exception and caught by assertThrows
     @Test
     public void buggyHelperShouldAcceptNoLuhn() {
         assertThrows(
             Exception.class,
-            () -> new BuggySwedishSocialSecurityNumberNoLuhn("900101-001", helper) // Lugn wrong(not 4 lugn digits), throws an exception
+            () -> new BuggySwedishSocialSecurityNumberNoLuhn("900101-001", helper) // Lugn wrong(not 4 lugn digits), catches an exception
+        );
+    }
+
+    /* TEST NO TRIM CHECK
+     */
+    //Buggy helper should have no trim check, when trim incorrect it throws an exception and canght by assertThrows
+    @Test
+    public void buggyHelperShouldAcceptNoTrim() {
+        assertThrows(
+            Exception.class,
+            () -> new BuggySwedishSocialSecurityNumberNoTrim("900101-0017 ", helper) // Not trimmed, assertThrows catches an exception and passe the test
         );
     }
 

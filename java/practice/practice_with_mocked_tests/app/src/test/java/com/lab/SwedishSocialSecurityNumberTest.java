@@ -170,4 +170,28 @@ public class SwedishSocialSecurityNumberTest {
         verify(mockHelper).luhnIsCorrect("900101-1234");
     }
 
+    // Correct mockHelper should accept not trimmed ssn
+    @Test
+    public void shouldAcceptNoTrim() throws Exception {
+        // MockeHelper works
+        when(mockHelper.isCorrectLength("900101-0017 ")).thenReturn(true);
+        when(mockHelper.isCorrectFormat("900101-0017 ")).thenReturn(true);
+        when(mockHelper.isValidMonth("01")).thenReturn(true);
+        when(mockHelper.isValidDay("01")).thenReturn(true);
+        when(mockHelper.luhnIsCorrect("900101-0017 ")).thenReturn(true);
+
+        // Create new SSN, pass by mockHelper
+        BuggySwedishSocialSecurityNumberNoTrim ssn = new BuggySwedishSocialSecurityNumberNoTrim("900101-0017 ", mockHelper);
+
+        // Assert: Verify the SSN was created and methods work
+        assertEquals("900101-0017 ", ssn.getSSN());
+
+        // Verify mock methods is called and in order to verify not trimmed ssn 
+        verify(mockHelper).isCorrectLength("900101-0017 ");
+        verify(mockHelper).isCorrectFormat("900101-0017 ");
+        verify(mockHelper).isValidMonth("01");
+        verify(mockHelper).isValidDay("01");
+        verify(mockHelper).luhnIsCorrect("900101-0017 ");
+    }
+
 }
