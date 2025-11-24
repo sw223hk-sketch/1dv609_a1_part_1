@@ -194,4 +194,27 @@ public class SwedishSocialSecurityNumberTest {
         verify(mockHelper).luhnIsCorrect("900101-0017 ");
     }
 
+    // Correct mockHelper should accept wrong year
+    @Test
+    public void shouldAcceptWrongYear() throws Exception {
+        // MockeHelper works
+        when(mockHelper.isCorrectLength("900101-0017")).thenReturn(true);
+        when(mockHelper.isCorrectFormat("900101-0017")).thenReturn(true);
+        when(mockHelper.isValidMonth("01")).thenReturn(true);
+        when(mockHelper.isValidDay("01")).thenReturn(true);
+        when(mockHelper.luhnIsCorrect("900101-0017")).thenReturn(true);
+
+        // Create new SSN, pass by mockHelper
+        BuggySwedishSocialSecurityNumberWrongYear ssn = new BuggySwedishSocialSecurityNumberWrongYear("900101-0017", mockHelper);
+
+        // Assert: Verify the year of SSN was created and methods work
+        assertEquals("00", ssn.getYear()); // subString of year is currently [1, 3), should be [0, 2)
+
+        // Verify mock methods is called and in order to verify not trimmed ssn 
+        verify(mockHelper).isCorrectLength("900101-0017");
+        verify(mockHelper).isCorrectFormat("900101-0017");
+        verify(mockHelper).isValidMonth("01");
+        verify(mockHelper).isValidDay("01");
+        verify(mockHelper).luhnIsCorrect("900101-0017");
+    }
 }

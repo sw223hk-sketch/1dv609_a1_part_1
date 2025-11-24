@@ -33,7 +33,7 @@ public class BuggySwedishSocialSecurityNumberWrongYear {
     }
     
     public String getYear() {
-        return this.ssn.substring(1, 3); // BUG: Should be substring(0, 2)
+        return this.ssn.substring(1, 3); // BUG: Should be substring(0, 2), 0 is the starting index, 1 is the ending index [0, 2)
     }
     
     public String getMonth() {

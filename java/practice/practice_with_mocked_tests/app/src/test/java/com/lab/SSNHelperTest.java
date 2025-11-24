@@ -141,4 +141,13 @@ public class SSNHelperTest {
         );
     }
 
+
+    /* TEST WRONG YEAR IDX
+     */
+    //Buggy helper should have wrong year idx, when happens, the idx are different from correct one
+    @Test
+    public void buggyHelperShouldAcceptWrongYearIdx() throws Exception {
+        BuggySwedishSocialSecurityNumberWrongYear buggyHelper = new BuggySwedishSocialSecurityNumberWrongYear("900101-0017", helper);
+        assertEquals("00", buggyHelper.getYear()); //the year is at idx [1, 3), should be [0, 2)
+    }
 }
