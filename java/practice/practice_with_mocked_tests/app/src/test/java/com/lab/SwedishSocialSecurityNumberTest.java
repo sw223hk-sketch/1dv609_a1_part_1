@@ -149,4 +149,25 @@ public class SwedishSocialSecurityNumberTest {
         // Verify mock methods is called and length is verified
         verify(mockHelper).isCorrectLength("900101-001");
     }
+
+    // Correct mockHelper should accept no Luhn check
+    @Test
+    public void shouldAcceptNoLuhnCheck() throws Exception {
+        // MockeHelper works
+        when(mockHelper.isCorrectLength("900101-1234")).thenReturn(true);
+        when(mockHelper.isCorrectFormat("900101-1234")).thenReturn(true);
+        when(mockHelper.isValidMonth("01")).thenReturn(true);
+        when(mockHelper.isValidDay("01")).thenReturn(true);
+        when(mockHelper.luhnIsCorrect("900101-1234")).thenReturn(true);
+
+        // Create new SSN, pass by mockHelper
+        SwedishSocialSecurityNumber ssn = new SwedishSocialSecurityNumber("900101-1234", mockHelper);
+
+        // Assert: Verify the SSN was created and methods work
+        assertEquals("1234", ssn.getSerialNumber());
+
+        // Verify mock methods is called and Luhn is verified
+        verify(mockHelper).luhnIsCorrect("900101-1234");
+    }
+
 }

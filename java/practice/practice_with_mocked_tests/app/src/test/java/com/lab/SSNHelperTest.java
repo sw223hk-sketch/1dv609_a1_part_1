@@ -119,5 +119,15 @@ public class SSNHelperTest {
         );
     }
 
+    /* TEST NO LUHN CHECK
+     */
+    //Buggy helper should have no Lhn check, when Lugn incorrect it throws an exception
+    @Test
+    public void buggyHelperShouldAcceptNoLuhn() {
+        assertThrows(
+            Exception.class,
+            () -> new BuggySwedishSocialSecurityNumberNoLuhn("900101-001", helper) // Lugn wrong(not 4 lugn digits), throws an exception
+        );
+    }
 
 }
