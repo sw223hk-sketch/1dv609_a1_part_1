@@ -58,15 +58,41 @@ Prepare:
 During Examination you may be asked these or related questions. You should be able to answer these questions in depth. 
 
 - How many tests are needed to find all bugs in the examples? Do you think this is enough testing for these problems? Too much?
+Six tests are needed to find all bugs in the example for practice_with_run_tests task. I don't think is enough testing for these problems, password should be more complicated, for example it should not be consecutive numbers or letters that follow alphabatic order, or it is better if it has a combiation of uppcase, lowercase letters, numbers and symbols. 
+
 - What are the missing tests you think would be good to add? 
+As I said, test if it has a variety of combinations, test if password has highly repetitive numbers/letters or symbols, test if numbers are consecutive/letters follows alphabatic order.
+
 - What is **good test data** for this example and why?
+
+
 * Should private methods be tested? What are the pros and cons of having a "helper class" instead of private methods?
+
+
 - Can all code be covered by code coverage? Why not? 
+No, it cannot. Because some code doesn't have its own functions, they call from other class, such as main. This will lower the code coverage rate.
+
 - What kind of "asserts"/"expects" can be done in your testing framework?
+is it asking what method have I used?
+
 - What kind(s) of Code Coverage is shown in your code coverage tool? What does the different coverage values mean?
+I used jacoco to show code coverage, it include kinds -- . They mean , , ,respectively
+
+
 - Why should a single test only have one assert/expect?
+Test a specific function, single responsibility principle.
+
 * What is the two main purposes of using mocks?
+Check how would a server for example affect the methods within the system, efficient to test, doesn't take long time and save resouces.
+
 * Why is it good if a test for a SUT is independent of the classes that the SUT depends on?
+don't understand.
+
 * Can all bugs be found by testing?
+No, there are always bugs.
+
 - Do all tests need asserts/expects?
+no idea.
+
 - Can we with testing prove that we are 100% bug free?
+No, we can not. 

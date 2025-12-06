@@ -1,4 +1,4 @@
-package com.lab;
+/*package com.lab;
 
 // Buggy 2: Allows passwords that are too short
 public class BugVeryShort implements IPassword {
@@ -38,4 +38,4 @@ public class BugVeryShort implements IPassword {
     public boolean isPasswordSame(IPassword other) {
         return this.passwordHash == other.getPasswordHash();
     }
-}
+}*/

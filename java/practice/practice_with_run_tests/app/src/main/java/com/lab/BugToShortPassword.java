@@ -1,4 +1,4 @@
-package com.lab;
+/*package com.lab;
 
 // Buggy 2: Allows passwords that are to short
 public class BugToShortPassword implements IPassword{
@@ -42,4 +42,4 @@ public class BugToShortPassword implements IPassword{
         return this.passwordHash;
     }
     
-}
+}*/

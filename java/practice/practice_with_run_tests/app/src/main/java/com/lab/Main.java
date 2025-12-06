@@ -1,5 +1,7 @@
 package com.lab;
 
+
+// No need to cover with test case, just the start of the program
 public class Main {
     public static void main(String[] args) {
         System.out.println("Hello World!");
