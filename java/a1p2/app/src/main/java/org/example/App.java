@@ -3,12 +3,14 @@
  */
 package org.example;
 
+// import Flashcard;
+
 public class App {
-    public String getGreeting() {
-        return "Hello World!";
-    }
 
     public static void main(String[] args) {
-        System.out.println(new App().getGreeting());
+        //Create new flashcasd
+        Flashcard fc = new Flashcard("How to say hi in Swedish?", "Hej");
+        System.out.println("Question: " + fc.getQuestion());
+
     }
 }

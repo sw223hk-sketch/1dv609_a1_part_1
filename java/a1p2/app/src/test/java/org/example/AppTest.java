@@ -7,8 +7,8 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 class AppTest {
-    @Test void appHasAGreeting() {
-        App classUnderTest = new App();
-        assertNotNull(classUnderTest.getGreeting(), "app should have a greeting");
+    @Test void cardHasQuestion() {
+        Flashcard fc = new Flashcard("Hi in Swedish?", "Hej");
+        assertNotNull(fc.getQuestion(), "Hi in Swedish?");
     }
 }
