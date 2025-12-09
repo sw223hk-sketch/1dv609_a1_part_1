@@ -20,7 +20,7 @@ public class FlashcardDeckTest {
         fcDeck.addFlashcard(fc1);
         fcDeck.addFlashcard(fc2);
 
-        assertEquals(fc1, fcDeck.getNextflashcard()); // current Idx start at -1, get fc1 at idx0
-        assertEquals(fc2, fcDeck.getNextflashcard()); // get fc2 at idx1
+        assertEquals(fc1, fcDeck.getNextFlashcard()); // current Idx start at -1, get fc1 at idx0
+        assertEquals(fc2, fcDeck.getNextFlashcard()); // get fc2 at idx1
     }
 }

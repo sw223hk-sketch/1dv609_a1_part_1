@@ -18,7 +18,8 @@ public class FlashcardDeck {
     }
 
 
-    public Flashcard getNextflashcard() {
+    // Get next falshcard in the falshcardDeck arraylist
+    public Flashcard getNextFlashcard() {
         // Empty deck
         if (flashcardDeck.isEmpty()) {
             return null;

@@ -20,7 +20,7 @@ class AppTest {
         fcDeck.addFlashcard(fc1);
         fcDeck.addFlashcard(fc2);
 
-        assertNotNull(fcDeck.getNextflashcard());
-        assertNotNull(fcDeck.getNextflashcard());
+        assertNotNull(fcDeck.getNextFlashcard());
+        assertNotNull(fcDeck.getNextFlashcard());
     }
 }

@@ -24,7 +24,7 @@ public class App {
         fcDeck.addFlashcard(fc1);
         fcDeck.addFlashcard(fc2);
 
-        System.out.println("Next flashcard: " + fcDeck.getNextflashcard());
+        System.out.println("Next flashcard: " + fcDeck.getNextFlashcard());
 
 
     }
