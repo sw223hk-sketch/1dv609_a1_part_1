@@ -20,7 +20,7 @@ public class App {
         System.out.println("Next flashcard: " + fcDeck.getNextFlashcard());
 
         //Creat a new user
-        /*User user = new User("Tom", 1);
-        System.out.println("Name: " + user.getUserName() + "\nScore: " + user.getScore());*/
+        User user = new User("Tom", 1);
+        System.out.println("Name: " + user.getUserName() + "\nScore: " + user.getScore());
     }
 }

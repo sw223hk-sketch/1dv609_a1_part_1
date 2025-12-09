@@ -2,7 +2,7 @@ package org.example;
 
 /* Users that use the App to play quiz.
  */
- /*public class User {
+public class User {
 
     // Attributes
     private String userName;
@@ -31,4 +31,4 @@ package org.example;
         return score;
     }
 
-}*/
+}
