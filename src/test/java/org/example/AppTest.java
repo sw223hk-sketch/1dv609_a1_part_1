@@ -3,24 +3,36 @@
  */
 package org.example;
 
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 import org.junit.jupiter.api.Test;
-import static org.junit.jupiter.api.Assertions.*;
 
+/* Test card, deck, user content not null.
+ */
 class AppTest {
-    @Test void cardHasQuestion() {
+
+    @Test
+    void cardHasQuestion() {
         Flashcard fc = new Flashcard("Hi in Swedish?", "Hej");
         assertNotNull(fc.getQuestion());
     }
 
-    @Test void deckHasNextCard() {
+    @Test
+    void deckHasNextCard() {
         Flashcard fc1 = new Flashcard("Hi in Swedish?", "Hej");
         Flashcard fc2 = new Flashcard("Thanks in Swedish?", "Tack");
 
-        FlashcardDeck fcDeck = new FlashcardDeck(); 
+        FlashcardDeck fcDeck = new FlashcardDeck();
         fcDeck.addFlashcard(fc1);
         fcDeck.addFlashcard(fc2);
 
         assertNotNull(fcDeck.getNextFlashcard());
         assertNotNull(fcDeck.getNextFlashcard());
     }
+
+    @Test
+    void userHasName() {
+        User user = new User("Lily", 0);
+        assertNotNull(user.getUserName());
+    }
+
 }
