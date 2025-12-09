@@ -3,14 +3,7 @@
  */
 package org.example;
 
-// import Flashcard;
-
-import java.util.ArrayList;
-import org.example.Flashcard;
-import org.example.FlashcardDeck;
-
 public class App {
-    private FlashcardDeck flashcardDeck;
 
     public static void main(String[] args) {
         //Create a new flashcard
@@ -26,6 +19,8 @@ public class App {
 
         System.out.println("Next flashcard: " + fcDeck.getNextFlashcard());
 
-
+        //Creat a new user
+        /*User user = new User("Tom", 1);
+        System.out.println("Name: " + user.getUserName() + "\nScore: " + user.getScore());*/
     }
 }

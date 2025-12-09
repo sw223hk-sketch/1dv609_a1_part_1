@@ -1,7 +1,9 @@
 package org.example;
+
 /* Flashcards consists of Flashcard
  */
 public class Flashcard {
+
     //Attributes
     private String question;
     private String answer;
@@ -11,6 +13,7 @@ public class Flashcard {
         this.question = question;
         this.answer = answer;
     }
+
     //Methods
     public void setQuestion(String question) {
         this.question = question;
@@ -26,5 +29,11 @@ public class Flashcard {
 
     public String getAnswer() {
         return answer;
+    }
+
+    // Print and show string properly
+    @Override
+    public String toString() {
+        return "Question: " + question;
     }
 }

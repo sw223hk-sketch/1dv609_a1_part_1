@@ -3,9 +3,8 @@
  */
 package org.example;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import org.junit.jupiter.api.Test;
-import static org.junit.jupiter.api.Assertions.*;
-
 
 public class FlashcardTest {
 
@@ -14,7 +13,5 @@ public class FlashcardTest {
         Flashcard fc = new Flashcard("Hi in Swedish?", "Hej");
         assertEquals("Hi in Swedish?", fc.getQuestion());
     }
-
-    
 
 }

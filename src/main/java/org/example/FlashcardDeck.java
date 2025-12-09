@@ -5,6 +5,7 @@ import java.util.ArrayList;
 /* FlashcardDeck has a deck of Flashcards.
  */
 public class FlashcardDeck {
+
     // Attributes
     final ArrayList<Flashcard> flashcardDeck = new ArrayList<>();
     private int currentIdx = -1; // idx before the fisrt card
@@ -17,7 +18,6 @@ public class FlashcardDeck {
         flashcardDeck.add(flashcard);
     }
 
-
     // Get next falshcard in the falshcardDeck arraylist
     public Flashcard getNextFlashcard() {
         // Empty deck
@@ -26,10 +26,9 @@ public class FlashcardDeck {
         }
         // Non-empty deck
         if (currentIdx <= flashcardDeck.size() - 1) {
-           currentIdx++;
+            currentIdx++;
         }
         return flashcardDeck.get(currentIdx);
     }
 
-
-}     
+}
