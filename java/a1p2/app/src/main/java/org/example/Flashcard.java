@@ -3,8 +3,8 @@ package org.example;
  */
 public class Flashcard {
     //Attributes
-    public String question;
-    public String answer;
+    private String question;
+    private String answer;
 
     //Constructor
     public Flashcard(String question, String answer) {
