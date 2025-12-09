@@ -5,12 +5,27 @@ package org.example;
 
 // import Flashcard;
 
+import java.util.ArrayList;
+import org.example.Flashcard;
+import org.example.FlashcardDeck;
+
 public class App {
+    private FlashcardDeck flashcardDeck;
 
     public static void main(String[] args) {
-        //Create new flashcasd
-        Flashcard fc = new Flashcard("How to say hi in Swedish?", "Hej");
-        System.out.println("Question: " + fc.getQuestion());
+        //Create a new flashcard
+        Flashcard fc1 = new Flashcard("Hi in Swedish?", "Hej");
+        System.out.println("Question: " + fc1.getQuestion());
+
+        //Create a FlashcardDeck, and add 2 cards to it
+        FlashcardDeck fcDeck = new FlashcardDeck();
+
+        Flashcard fc2 = new Flashcard("Thanks in Swedish", "Tack");
+        fcDeck.addFlashcard(fc1);
+        fcDeck.addFlashcard(fc2);
+
+        System.out.println("Next flashcard: " + fcDeck.getNextflashcard());
+
 
     }
 }

@@ -1,5 +1,6 @@
 package org.example;
-
+/* Flashcards consists of Flashcard
+ */
 public class Flashcard {
     //Attributes
     public String question;

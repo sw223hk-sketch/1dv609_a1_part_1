@@ -9,6 +9,18 @@ import static org.junit.jupiter.api.Assertions.*;
 class AppTest {
     @Test void cardHasQuestion() {
         Flashcard fc = new Flashcard("Hi in Swedish?", "Hej");
-        assertNotNull(fc.getQuestion(), "Hi in Swedish?");
+        assertNotNull(fc.getQuestion());
+    }
+
+    @Test void deckHasNextCard() {
+        Flashcard fc1 = new Flashcard("Hi in Swedish?", "Hej");
+        Flashcard fc2 = new Flashcard("Thanks in Swedish?", "Tack");
+
+        FlashcardDeck fcDeck = new FlashcardDeck(); 
+        fcDeck.addFlashcard(fc1);
+        fcDeck.addFlashcard(fc2);
+
+        assertNotNull(fcDeck.getNextflashcard());
+        assertNotNull(fcDeck.getNextflashcard());
     }
 }
