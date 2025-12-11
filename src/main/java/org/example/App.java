@@ -17,10 +17,28 @@ public class App {
         fcDeck.addFlashcard(fc1);
         fcDeck.addFlashcard(fc2);
 
-        System.out.println("Next flashcard: " + fcDeck.getNextFlashcard());
+        System.out.println("\nFirst flashcard: " + fcDeck.getNextFlashcard()); // shows the 1st card
+        System.out.println("Next flashcard: " + fcDeck.getNextFlashcard()); // shows the 2st card
 
         //Creat a new user passing name and socre
         User user = new User("Tom", 1);
-        System.out.println("Name: " + user.getUserName() + "\nScore: " + user.getScore());
+        System.out.println("\nName: " + user.getUserName() + "\nScore: " + user.getScore());
+
+        //Create a QuizService and pass flashcardDeck
+        //Create card and add to FlashcardDeck
+        Flashcard fcWithoutService = new Flashcard("\nHow are you in Swedish?", "Hur mår du?");
+        FlashcardDeck fcDeckService = new FlashcardDeck();
+
+        fcDeckService.addFlashcard(fcWithoutService);
+
+        //Call QuizService to inject the deck
+        QuizService service = new QuizService();
+        service.setFlashcardDeck(fcDeckService);
+
+        Flashcard fcThroughService = service.getReturnedFlashcard(); // ask the service for a card
+
+        // Check if question from returnedCard equals the original fcNew question
+        System.out.println("\nGet the card without service: " + fcWithoutService.getQuestion());
+        System.out.println("Get the card through service: " + fcThroughService.getQuestion());
     }
 }
