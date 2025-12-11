@@ -11,12 +11,12 @@ public class QuizServiceTest {
 
     // Returns for next card from FlashcardDeck
     @Test
-    void testReturnCardQuestion() {
+    void testReturnedCardQuestion() {
         // 1. Set up mock
         FlashcardDeck mockFcDeck = Mockito.mock(FlashcardDeck.class);
         Flashcard mockFc = new Flashcard("No problem in Swedish?", "Inga problem");
 
-        // Behavior: Tell mock to return mockFc when call from mockFcDeck
+        // Expected Behavior: tell mock to return mockFc when call from mockFcDeck
         when(mockFcDeck.getNextFlashcard()).thenReturn(mockFc);
 
         // 2. Run quizService to verify behavior
