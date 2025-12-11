@@ -11,7 +11,7 @@ public class QuizServiceTest {
 
     // Returns for next card from FlashcardDeck
     @Test
-    void testReturnedCardQuestion() {
+    void testReturnedQuestion() {
         // 1. Set up mock
         FlashcardDeck mockFcDeck = Mockito.mock(FlashcardDeck.class);
         Flashcard mockFc = new Flashcard("No problem in Swedish?", "Inga problem");
@@ -20,12 +20,13 @@ public class QuizServiceTest {
         when(mockFcDeck.getNextFlashcard()).thenReturn(mockFc);
 
         // 2. Run quizService to verify behavior
-        QuizService service = new QuizService(mockFcDeck);
+        QuizService service = new QuizService();
+        service.setFlashcardDeck(mockFcDeck);
 
-        Flashcard returnedCard = service.retrieveQuestion();
+        Flashcard returnedCard = service.getReturnedFlashcard();
 
         // Check if question from returnedCard is the same as mockFc
-        assertEquals(mockFc.getQuestion(), returnedCard.getQuestion());
+        assertEquals("No problem in Swedish?", returnedCard.getQuestion());
 
         // Verify that FlashcardDeck is called only once
         verify(mockFcDeck, times(1)).getNextFlashcard();
