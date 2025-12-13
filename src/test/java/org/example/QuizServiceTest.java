@@ -59,4 +59,21 @@ public class QuizServiceTest {
         verify(mockFcDeck, times(1)).getNextFlashcard();
 
     }
+
+    @Test
+    void testScoreCorrect() {
+        // Set up mock
+        User user = new User("Thomas", 5);
+
+        // 2. Run quizService to verify behavior
+        QuizService service = new QuizService();
+        service.setUser(user);
+
+        // Act
+        boolean result = service.checkScore(user, 5);
+
+        // Check if returnedScore is the same as userScore
+        assertTrue(result);
+
+    }
 }

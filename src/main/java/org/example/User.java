@@ -27,7 +27,7 @@ public class User {
         return userName;
     }
 
-    public void setsScore(int score) {
+    public void setScore(int score) {
         this.score = score;
     }
 
