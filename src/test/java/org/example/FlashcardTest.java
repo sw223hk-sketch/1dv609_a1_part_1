@@ -6,6 +6,8 @@ package org.example;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import org.junit.jupiter.api.Test;
 
+/* Flashcard test for testing Flashcard related methods.
+ */
 public class FlashcardTest {
 
     @Test

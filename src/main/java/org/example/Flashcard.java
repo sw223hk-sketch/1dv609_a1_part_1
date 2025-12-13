@@ -27,9 +27,10 @@ public class Flashcard {
         this.answer = answer;
     }
 
-    /*public String getAnswer() {
+    public String getAnswer() {
         return answer;
-    }*/
+    }
+
     // Print and show string properly, not object reference
     @Override
     public String toString() {
