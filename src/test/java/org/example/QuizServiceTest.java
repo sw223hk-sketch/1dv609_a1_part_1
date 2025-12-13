@@ -62,7 +62,7 @@ public class QuizServiceTest {
 
     @Test
     void testScoreCorrect() {
-        // Set up mock
+        // Create new user with userScore
         User user = new User("Thomas", 5);
 
         // 2. Run quizService to verify behavior
@@ -70,10 +70,10 @@ public class QuizServiceTest {
         service.setUser(user);
 
         // Act
-        boolean result = service.checkScore(user, 5);
+        boolean returnedScore = service.checkScore(user, 5);
 
         // Check if returnedScore is the same as userScore
-        assertTrue(result);
+        assertTrue(returnedScore);
 
     }
 }
