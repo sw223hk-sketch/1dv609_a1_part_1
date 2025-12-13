@@ -1,7 +1,6 @@
 package org.example;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -26,8 +25,10 @@ public class FlashcardDeckTest {
         assertEquals(fc2, fcDeck.getNextFlashcard()); // get fc2 at idx1
     }
 
+    /* Order of the cards in the deck should change after shuffling.
+     */
     @Test
-    void testShuffleDoesntLoseCards() {
+    void testShouldShuffleCards() {
         FlashcardDeck fcDeck = new FlashcardDeck();
 
         // Create new flashcards
