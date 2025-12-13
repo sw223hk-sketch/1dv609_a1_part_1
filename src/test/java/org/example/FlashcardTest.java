@@ -14,4 +14,9 @@ public class FlashcardTest {
         assertEquals("Hi in Swedish?", fc.getQuestion());
     }
 
+    @Test
+    void testGetAnswer() {
+        Flashcard fc = new Flashcard("Goodbye in Swedish?", "Hej då");
+        assertEquals("Hej då", fc.getAnswer());
+    }
 }
