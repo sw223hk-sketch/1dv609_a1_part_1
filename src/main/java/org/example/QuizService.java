@@ -22,4 +22,9 @@ public class QuizService {
         return card.getQuestion();
     }
 
+    //Get returned question from card through QuizService and compapre to the answer without
+    //passing the service
+    public boolean checkAnswer(Flashcard card, String userAnswer) {
+        return card.getAnswer().equals(userAnswer);
+    }
 }

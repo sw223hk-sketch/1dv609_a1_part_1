@@ -2,7 +2,6 @@ package org.example;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
-
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 import static org.mockito.Mockito.times;
@@ -50,8 +49,11 @@ public class QuizServiceTest {
 
         Flashcard returnCard = service.getReturnedFlashcard();
 
+        // Act
+        boolean result = service.checkAnswer(returnCard, "Varför?");
+
         // Check if answer from returnedCard is the same as mockFc
-        assertTrue(returnCard.checkAnswer(mockFc, "Varför"));
+        assertTrue(result);
 
         // Verify that FlashcardDeck is called only once
         verify(mockFcDeck, times(1)).getNextFlashcard();
