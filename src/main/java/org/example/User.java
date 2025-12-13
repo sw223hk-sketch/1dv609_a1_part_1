@@ -10,6 +10,9 @@ public class User {
 
     // Constructor
     public User(String userName, int score) {
+        if (score < 0) {
+            throw new IllegalArgumentException("Score cannot be negative.");
+        }
         this.userName = userName;
         this.score = score;
     }

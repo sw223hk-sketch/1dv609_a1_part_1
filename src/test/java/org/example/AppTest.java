@@ -14,26 +14,26 @@ class AppTest {
      * Test flashcard related methods return not null.
      */
     @Test
-    void cardHasQuestion() {
+    void testCardHasQuestion() {
         Flashcard fc = new Flashcard("Hi in Swedish?", "Hej");
         assertNotNull(fc.getQuestion());
     }
 
     @Test
-    void cardHasAnswer() {
+    void tesCardHasAnswer() {
         Flashcard fc = new Flashcard("Bye in Swedish?", "Hej då");
         assertNotNull(fc.getAnswer());
     }
 
     @Test
-    void cardHasQuestionAndAnswer() {
+    void testCardHasQuestionAndAnswer() {
         Flashcard fc = new Flashcard("What did you eat for breakfast in Swedish?", "Vad åt du till frukost?");
         String result = fc.toString();
         assertNotNull(result);
     }
 
     @Test
-    void deckHasNextCard() {
+    void testDeckHasNextCard() {
         Flashcard fc1 = new Flashcard("Hi in Swedish?", "Hej");
         Flashcard fc2 = new Flashcard("Thanks in Swedish?", "Tack");
 
@@ -46,9 +46,15 @@ class AppTest {
     }
 
     @Test
-    void userHasName() {
+    void testUserHasName() {
         User user = new User("Lily", 0);
         assertNotNull(user.getUserName());
+    }
+
+    @Test
+    void testUserShouldHaveScore() {
+        User user = new User("Bob", 20);
+        assertNotNull(user.getScore());
     }
 
 }

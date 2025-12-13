@@ -46,6 +46,9 @@ public class App {
         System.out.println("\nAfter shuffle 3 cards: " + fcDeck.toString());
         System.out.println("\nShow deck size after shuffling: " + fcDeck.getFlashcards().size());
 
+        /**
+         * User Deck Methods.
+         */
         //Creat a new user passing name and socre
         User user = new User("Tom", 1);
         System.out.println("\nName: " + user.getUserName() + "\nScore: " + user.getScore());

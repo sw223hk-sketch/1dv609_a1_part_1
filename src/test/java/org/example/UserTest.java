@@ -1,6 +1,7 @@
 package org.example;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import org.junit.jupiter.api.Test;
 
 public class UserTest {
@@ -13,8 +14,18 @@ public class UserTest {
     }
 
     @Test
-    void testgetScore() {
+    void testUserShouleGetCorrectScore() {
         User user = new User("Jack", 30);
         assertEquals(30, user.getScore());
+    }
+
+    /* Scores should not be negative.
+     */
+    @Test
+    void userShouldNotAllowNegativeScore() {
+        assertThrows(IllegalArgumentException.class,
+                () -> new User("John", -1)
+        );
+
     }
 }
