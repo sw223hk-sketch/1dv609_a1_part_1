@@ -27,8 +27,7 @@ public class User {
         this.score = score;
     }
 
-    public int getScore() {
+    /*public int getScore() {
         return score;
-    }
-
+    }*/
 }

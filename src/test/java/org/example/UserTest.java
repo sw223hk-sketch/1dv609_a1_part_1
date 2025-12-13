@@ -11,4 +11,10 @@ public class UserTest {
         assertEquals("Sally", user.getUserName());
 
     }
+
+    @Test
+    void testgetScore() {
+        User user = new User("Jack", 30);
+        assertEquals(30, user.getScore());
+    }
 }

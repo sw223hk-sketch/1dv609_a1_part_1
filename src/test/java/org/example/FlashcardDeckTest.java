@@ -9,6 +9,8 @@ import org.junit.jupiter.api.Test;
 
 public class FlashcardDeckTest {
 
+    /* Next card should be corrcectly withdrawn.
+     */
     @Test
     void testGetNextCard() {
         FlashcardDeck fcDeck = new FlashcardDeck();
@@ -28,7 +30,7 @@ public class FlashcardDeckTest {
     /* Order of the cards in the deck should change after shuffling.
      */
     @Test
-    void testShouldShuffleCards() {
+    void testShuffleReturnDifferentOrderCards() {
         FlashcardDeck fcDeck = new FlashcardDeck();
 
         // Create new flashcards
@@ -47,4 +49,27 @@ public class FlashcardDeckTest {
         //Check if originalDeck have different order as shuffeldDeck
         assertFalse(originalDeck.equals(fcDeck.getFlashcards()));
     }
+
+    @Test
+    void testShuffleReturnEqualNumberCards() {
+        FlashcardDeck toBeShuffledDeck = new FlashcardDeck();
+
+        // Create new flashcards
+        Flashcard fc1 = new Flashcard("Hi in Swedish?", "Hej");
+        Flashcard fc2 = new Flashcard("Thanks in Swedish?", "Tack");
+        Flashcard fc3 = new Flashcard("What will you do in Swedish?", "Vad ska du göra idag?");
+
+        // Add cards to the Deck
+        toBeShuffledDeck.addFlashcard(fc1);
+        toBeShuffledDeck.addFlashcard(fc2);
+        toBeShuffledDeck.addFlashcard(fc3);
+
+        List<Flashcard> originalOrder = new ArrayList<>(toBeShuffledDeck.getFlashcards()); // orginal cards
+        toBeShuffledDeck.shuffleCards(); // fcDeck become shuffled
+
+        //Compare that size of deck before and after shuffle are the same
+        assertEquals(originalOrder.size(), toBeShuffledDeck.getFlashcards().size()); // toBeShuffledDeck is FlashcardDeck type, cannot get size directly
+
+    }
+
 }

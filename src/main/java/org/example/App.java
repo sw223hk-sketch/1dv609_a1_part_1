@@ -21,6 +21,9 @@ public class App {
         String result = fcToString.toString();
         System.out.println(result);
 
+        /**
+         * Flashcard Deck Methods.
+         */
         //Create a FlashcardDeck, and add 2 cards to it
         FlashcardDeck fcDeck = new FlashcardDeck();
 
@@ -33,10 +36,15 @@ public class App {
         System.out.println("\nFirst flashcard: " + fcDeck.getNextFlashcard()); // shows the 1st card
         System.out.println("Next flashcard: " + fcDeck.getNextFlashcard()); // shows the 2st card
 
+        //BEFORE SHUFFLING -- Print deck cards and show number of cards
         System.out.println("\nBefore shuffle 3 cards: " + fcDeck.toString());
-        //Shuffle deck
-        fcDeck.shuffleCards();
+        System.out.println("\nShow deck size before shuffling: " + fcDeck.getFlashcards().size());
+
+        fcDeck.shuffleCards();  //Shuffle deck
+
+        //AFTER SHUFFLING -- Print deck cards and show number of cards
         System.out.println("\nAfter shuffle 3 cards: " + fcDeck.toString());
+        System.out.println("\nShow deck size after shuffling: " + fcDeck.getFlashcards().size());
 
         //Creat a new user passing name and socre
         User user = new User("Tom", 1);
