@@ -67,7 +67,11 @@ public class App {
         Flashcard fcThroughService = service.getReturnedFlashcard(); // ask the service for a card
 
         // Check if question from returnedCard equals the original fcNew question
-        System.out.println("\nGet the card without service: " + fcWithoutService.getQuestion());
-        System.out.println("Get the card through service: " + fcThroughService.getQuestion());
+        System.out.println("\nGet the card question without service: " + fcWithoutService.getQuestion());
+        System.out.println("Get the card question through service: " + fcThroughService.getQuestion());
+
+        // Check if answer from returnedCard equals the original fcNew answer
+        System.out.println("\nGet the card answer without service: " + fcWithoutService.getAnswer());
+        System.out.println("Get the card answer through service: " + fcThroughService.getAnswer());
     }
 }
