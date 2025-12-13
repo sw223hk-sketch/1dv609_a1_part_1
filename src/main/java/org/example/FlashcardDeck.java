@@ -1,13 +1,15 @@
 package org.example;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
 /* FlashcardDeck has a deck of Flashcards.
  */
 public class FlashcardDeck {
 
     // Attributes
-    final ArrayList<Flashcard> flashcardDeck = new ArrayList<>();
+    final List<Flashcard> flashcardDeck = new ArrayList<>();
     private int currentIdx = -1; // idx before the fisrt card
 
     // Constructor: start empty
@@ -31,4 +33,22 @@ public class FlashcardDeck {
         return flashcardDeck.get(currentIdx);
     }
 
+    // Get all flashcards from the Deck as list items
+    public List<Flashcard> getFlashcards() {
+        return flashcardDeck;
+
+    }
+
+    // Shuffle cards
+    public void shuffleCards() {
+
+        Collections.shuffle(flashcardDeck);
+
+    }
+
+    @Override
+    public String toString() {
+        return flashcardDeck.toString();
+
+    }
 }

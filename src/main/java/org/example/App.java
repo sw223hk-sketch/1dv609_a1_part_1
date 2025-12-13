@@ -25,11 +25,18 @@ public class App {
         FlashcardDeck fcDeck = new FlashcardDeck();
 
         Flashcard fc2 = new Flashcard("Thanks in Swedish?", "Tack");
+        Flashcard fc3 = new Flashcard("What time did you get up this morning in Swedish?", "Vilken tid gick du upp imorse?");
         fcDeck.addFlashcard(fc1);
         fcDeck.addFlashcard(fc2);
+        fcDeck.addFlashcard(fc3);
 
         System.out.println("\nFirst flashcard: " + fcDeck.getNextFlashcard()); // shows the 1st card
         System.out.println("Next flashcard: " + fcDeck.getNextFlashcard()); // shows the 2st card
+
+        System.out.println("\nBefore shuffle 3 cards: " + fcDeck.toString());
+        //Shuffle deck
+        fcDeck.shuffleCards();
+        System.out.println("\nAfter shuffle 3 cards: " + fcDeck.toString());
 
         //Creat a new user passing name and socre
         User user = new User("Tom", 1);

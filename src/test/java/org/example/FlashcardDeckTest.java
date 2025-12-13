@@ -1,10 +1,12 @@
 package org.example;
 
-import org.junit.jupiter.api.Test;
-import static org.junit.jupiter.api.Assertions.*;
-
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.List;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import org.junit.jupiter.api.Test;
 
 public class FlashcardDeckTest {
 
@@ -31,13 +33,17 @@ public class FlashcardDeckTest {
         // Create new flashcards
         Flashcard fc1 = new Flashcard("Hi in Swedish?", "Hej");
         Flashcard fc2 = new Flashcard("Thanks in Swedish?", "Tack");
+        Flashcard fc3 = new Flashcard("What will you do in Swedish?", "Vad ska du göra idag?");
 
         // Add cards to the Deck
         fcDeck.addFlashcard(fc1);
         fcDeck.addFlashcard(fc2);
+        fcDeck.addFlashcard(fc3);
 
-        FlashcardDeck shuffledCards = Collections.shuffle(fcDeck);
+        List<Flashcard> originalDeck = new ArrayList<>(fcDeck.getFlashcards());
+        fcDeck.shuffleCards(); //shuffle original deck, fcDeck becomes shuffeldDeck
 
-        assertEquals(2, shuffledCards.getSize());
+        //Check if originalDeck have different order as shuffeldDeck
+        assertFalse(originalDeck.equals(fcDeck.getFlashcards()));
     }
 }
