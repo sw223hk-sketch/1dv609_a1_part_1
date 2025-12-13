@@ -10,10 +10,19 @@ import org.junit.jupiter.api.Test;
  */
 class AppTest {
 
+    /**
+     * Test flashcard related methods return not null.
+     */
     @Test
     void cardHasQuestion() {
         Flashcard fc = new Flashcard("Hi in Swedish?", "Hej");
         assertNotNull(fc.getQuestion());
+    }
+
+    @Test
+    void cardHasAnswer() {
+        Flashcard fc = new Flashcard("Bye in Swedish?", "Hej då");
+        assertNotNull(fc.getAnswer());
     }
 
     @Test

@@ -6,9 +6,13 @@ package org.example;
 public class App {
 
     public static void main(String[] args) {
+        /**
+         * Flashcard Methods.
+         */
         //Create a new flashcard
         Flashcard fc1 = new Flashcard("Hi in Swedish?", "Hej");
-        System.out.println("Question: " + fc1.getQuestion());
+        System.out.println("Question: " + fc1.getQuestion()); // print question
+        System.out.println("Answer: " + fc1.getAnswer()); // print answer
 
         //Create a FlashcardDeck, and add 2 cards to it
         FlashcardDeck fcDeck = new FlashcardDeck();

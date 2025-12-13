@@ -10,12 +10,14 @@ import org.junit.jupiter.api.Test;
  */
 public class FlashcardTest {
 
+    // Test if card can get correct question.
     @Test
     void testGetQuestion() {
         Flashcard fc = new Flashcard("Hi in Swedish?", "Hej");
         assertEquals("Hi in Swedish?", fc.getQuestion());
     }
 
+    // Test if card can get correct question.
     @Test
     void testGetAnswer() {
         Flashcard fc = new Flashcard("Goodbye in Swedish?", "Hej då");
