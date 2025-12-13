@@ -25,12 +25,12 @@ public class FlashcardTest {
         assertEquals("Hej då", fc.getAnswer());
     }
 
-    // Test if card can contain both question and answer.
+    // Test if card contain both question and answer.
     @Test
     void testContainQuestionAndAnswer() {
         Flashcard fc = new Flashcard("What did you eat for breakfast in Swedish?", "Vad åt du till frukost?");
 
-        // Store toString() in result
+        // Store qustion and answer representation in result
         String result = fc.toString();
 
         // Return true if toString() contains correct question and answer

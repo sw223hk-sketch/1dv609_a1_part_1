@@ -31,7 +31,7 @@ public class Flashcard {
         return answer;
     }
 
-    // Print and show string (qustion and answer) properly, not object reference
+    // Print and show string of qustion and answer properly, not object reference
     @Override
     public String toString() {
         return "Question: " + question + "\nAnswer: " + answer;
