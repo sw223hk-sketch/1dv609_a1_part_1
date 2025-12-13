@@ -11,13 +11,20 @@ public class App {
          */
         //Create a new flashcard
         Flashcard fc1 = new Flashcard("Hi in Swedish?", "Hej");
+
+        // Get card question and answer as separate String
         System.out.println("Question: " + fc1.getQuestion()); // print question
         System.out.println("Answer: " + fc1.getAnswer()); // print answer
+
+        // Get card and question as toString()
+        Flashcard fcToString = new Flashcard("What did you eat for breakfast in Swedish?", "Vad åt du till frukost?");
+        String result = fcToString.toString();
+        System.out.println(result);
 
         //Create a FlashcardDeck, and add 2 cards to it
         FlashcardDeck fcDeck = new FlashcardDeck();
 
-        Flashcard fc2 = new Flashcard("Thanks in Swedish", "Tack");
+        Flashcard fc2 = new Flashcard("Thanks in Swedish?", "Tack");
         fcDeck.addFlashcard(fc1);
         fcDeck.addFlashcard(fc2);
 

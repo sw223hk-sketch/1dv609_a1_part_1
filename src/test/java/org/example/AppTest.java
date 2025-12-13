@@ -26,6 +26,13 @@ class AppTest {
     }
 
     @Test
+    void cardHasQuestionAndAnswer() {
+        Flashcard fc = new Flashcard("What did you eat for breakfast in Swedish?", "Vad åt du till frukost?");
+        String result = fc.toString();
+        assertNotNull(result);
+    }
+
+    @Test
     void deckHasNextCard() {
         Flashcard fc1 = new Flashcard("Hi in Swedish?", "Hej");
         Flashcard fc2 = new Flashcard("Thanks in Swedish?", "Tack");

@@ -11,4 +11,4 @@ plugins {
 }
 
 rootProject.name = '1dv609_a1_part_1'
-include('app')
+include('App')
