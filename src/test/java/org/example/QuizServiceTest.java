@@ -70,10 +70,10 @@ public class QuizServiceTest {
         service.setUser(user);
 
         // Act
-        boolean returnedScore = service.checkScore(user, 5);
+        boolean result = service.checkScore(user, 5);
 
         // Check if returnedScore is the same as userScore
-        assertTrue(returnedScore);
+        assertTrue(result);
 
     }
 }

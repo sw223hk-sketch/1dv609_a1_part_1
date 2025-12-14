@@ -53,6 +53,9 @@ public class App {
         User user = new User("Tom", 1);
         System.out.println("\nName: " + user.getUserName() + "\nScore: " + user.getScore());
 
+        /**
+         * QuickService Methods.
+         */
         //Create a QuizService and pass flashcardDeck
         //Create card and add to FlashcardDeck
         Flashcard fcWithoutService = new Flashcard("\nHow are you in Swedish?", "Hur mår du?");
@@ -73,5 +76,14 @@ public class App {
         // Check if answer from returnedCard equals the original fcNew answer
         System.out.println("\nGet the card answer without service: " + fcWithoutService.getAnswer());
         System.out.println("Get the card answer through service: " + fcThroughService.getAnswer());
+
+        // Check if it is true that userScore are the same with or without sercive
+        User user3 = new User("Alice", 1);
+
+        service.setUser(user3);
+
+        boolean compareScore = service.checkScore(user, 1);
+        System.out.println("\nUserScore and Score go through service are the same: " + compareScore);
+
     }
 }

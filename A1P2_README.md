@@ -67,3 +67,8 @@
 
 20. In TDD, why do we go for RED first?
     We start with RED to define the goal clearly: the test shows what functionality we want to implement, and failing it confirms that the feature is not yet present. This guides development and ensures we only wirte code necessary to pass the test.
+
+# jacococ report
+
+- run command to get reprot: ./gradlew clean test jacocoTestReport
+- generated report locate in /Users/sisiwu/Downloads/1DV609_Testing/Assignment/A1/1dv609_a1_part_1/build/reports/jacoco/test/html
