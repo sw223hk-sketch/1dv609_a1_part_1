@@ -36,4 +36,12 @@ public class UserTest {
         user.setUserName("Kelly");
         assertEquals("Kelly", user.getUserName());
     }
+
+    // Test if set user name works correctly
+    @Test
+    void testSetScoreCorrectly() {
+        User user = new User("Ashley", 11);
+        user.setScore(20);
+        assertEquals(20, user.getScore());
+    }
 }
