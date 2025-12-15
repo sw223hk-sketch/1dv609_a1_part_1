@@ -53,3 +53,11 @@ tasks.named('test') {
     useJUnitPlatform()
     finalizedBy jacocoTestReport
 }
+
+jacocoTestReport {
+    classDirectories.setFrom(
+        files(classDirectories.files.collect {
+            fileTree(dir: it, exclude: ['org/example/App.class'])
+        })
+    )
+}

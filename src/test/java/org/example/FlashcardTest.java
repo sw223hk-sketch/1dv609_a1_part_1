@@ -37,4 +37,11 @@ public class FlashcardTest {
         assertTrue(result.contains(fc.getQuestion()));
         assertTrue(result.contains(fc.getAnswer()));
     }
+
+    @Test
+    void testSetQuestion() {
+        Flashcard fc = new Flashcard("You are welcome in Swedish?", "Varsågod");
+        fc.setQuestion("I am tired in Swedish?");
+        assertEquals("I am tired in Swedish?", fc.getQuestion());
+    }
 }
