@@ -38,11 +38,12 @@ public class FlashcardTest {
         assertTrue(result.contains(fc.getAnswer()));
     }
 
+    // Test if set question works correctly
     @Test
-    void testSetQuestion() {
+    void testSetQuestionCorrectly() {
         Flashcard fc = new Flashcard("You are welcome in Swedish?", "Varsågod");
-        fc.setQuestion("I am tired in Swedish?");
-        assertEquals("I am tired in Swedish?", fc.getQuestion());
+        fc.setQuestion("I am tired in Swedish?"); // set another question 
+        assertEquals("I am tired in Swedish?", fc.getQuestion()); // check if question updated correctly
     }
 
     @Test
