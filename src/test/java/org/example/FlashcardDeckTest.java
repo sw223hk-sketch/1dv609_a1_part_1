@@ -5,6 +5,8 @@ import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import org.junit.jupiter.api.Test;
 
 public class FlashcardDeckTest {
@@ -72,23 +74,34 @@ public class FlashcardDeckTest {
 
     }
 
+    // Check if FlashcardDeck can return each Card correctly
     @Test
-    void testToString() {
-        FlashcardDeck toBeShuffledDeck = new FlashcardDeck();
+    void testFcDeckToString() {
+        FlashcardDeck fcDeckType = new FlashcardDeck();
 
         // Create new flashcards
         Flashcard fc1 = new Flashcard("Hi in Swedish?", "Hej");
         Flashcard fc2 = new Flashcard("Thanks in Swedish?", "Tack");
 
         // Add cards to the Deck
-        toBeShuffledDeck.addFlashcard(fc1);
-        toBeShuffledDeck.addFlashcard(fc2);
+        fcDeckType.addFlashcard(fc1);
+        fcDeckType.addFlashcard(fc2);
 
-        List<Flashcard> originalOrder = new ArrayList<>(toBeShuffledDeck.getFlashcards()); // orginal cards
+        // Call deckToString
+        String deckString = fcDeckType.toString();
 
-        for (int i = 0; i < originalOrder.size(); i++) {
-            assertEquals(originalOrder.get(i).toString(), toBeShuffledDeck.getFlashcards().get(i).toString());
-        }
+        // Check if deck contains both cards' info
+        assertTrue(deckString.contains("Hi in Swedish"));
+        assertTrue(deckString.contains("Thanks in Swedish?"));
+
+    }
+
+    // Test if deck is empty, nextCard shows null
+    @Test
+    void testFcDeckShouldNotBeNull() {
+        FlashcardDeck fcDeck = new FlashcardDeck();
+        Flashcard nextCard = fcDeck.getNextFlashcard(); // call getNextFlashcard to refer to the method
+        assertNull(nextCard); //When FlashcardDeck is empty, nextCard shows null
 
     }
 

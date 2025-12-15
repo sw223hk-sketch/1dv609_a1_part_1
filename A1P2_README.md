@@ -72,3 +72,8 @@
 
 - run command to get reprot: ./gradlew clean test jacocoTestReport
 - generated report locate in /Users/sisiwu/Downloads/1DV609_Testing/Assignment/A1/1dv609_a1_part_1/build/reports/jacoco/test/html
+
+| Coverage Type | What it checks                           | How. tosatisfy                                                     |
+| ------------- | ---------------------------------------- | ------------------------------------------------------------------ |
+| Instructions  | Every bytecode executed at least once    | Call the method, execute every line                                |
+| Branches      | Every outcome of every decision executed | Test true/false paths for `if`, `switch`, ternary, loop conditions |

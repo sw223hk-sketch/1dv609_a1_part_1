@@ -9,7 +9,7 @@ import java.util.List;
 public class FlashcardDeck {
 
     // Attributes
-    final List<Flashcard> flashcardDeck = new ArrayList<>();
+    private List<Flashcard> flashcardDeck = new ArrayList<>();
     private int currentIdx = -1; // idx before the fisrt card
 
     // Constructor: start empty
