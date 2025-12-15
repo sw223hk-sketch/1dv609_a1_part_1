@@ -32,7 +32,7 @@ public class UserTest {
     @Test
     void testSetName() {
         User user = new User("Emily", 13);
-        user.setName("Kelly");
+        user.setUserName("Kelly");
         assertEquals("Kelly", user.getUserName());
     }
 }

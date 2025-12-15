@@ -19,9 +19,10 @@ public class User {
     }
 
     // Method
-    /*public void setName(String userName) {
+    public void setUserName(String userName) {
         this.userName = userName;
-    }*/
+    }
+
     public String getUserName() {
         return userName;
     }
