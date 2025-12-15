@@ -29,8 +29,9 @@ public class UserTest {
 
     }
 
+    // Test if set user name works correctly
     @Test
-    void testSetName() {
+    void testSetNameCorrectly() {
         User user = new User("Emily", 13);
         user.setUserName("Kelly");
         assertEquals("Kelly", user.getUserName());
