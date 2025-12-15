@@ -44,4 +44,11 @@ public class FlashcardTest {
         fc.setQuestion("I am tired in Swedish?");
         assertEquals("I am tired in Swedish?", fc.getQuestion());
     }
+
+    @Test
+    void testSetAnswer() {
+        Flashcard fc = new Flashcard("You are welcome in Swedish?", "Varsågod");
+        fc.setAnswer("Trött");
+        assertEquals("Trött", fc.getAnswer());
+    }
 }
