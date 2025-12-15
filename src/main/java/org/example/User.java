@@ -27,9 +27,10 @@ public class User {
         return userName;
     }
 
-    /*public void setScore(int score) {
+    public void setScore(int score) {
         this.score = score;
-    }*/
+    }
+
     public int getScore() {
         return score;
     }

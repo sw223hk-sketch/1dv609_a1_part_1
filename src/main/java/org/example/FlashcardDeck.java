@@ -48,7 +48,11 @@ public class FlashcardDeck {
 
     @Override
     public String toString() {
-        return flashcardDeck.toString();
+        StringBuilder sb = new StringBuilder();
+        for (Flashcard fc : flashcardDeck) {
+            sb.append(fc.toString()).append("\n");
+        }
+        return sb.toString();
 
     }
 }

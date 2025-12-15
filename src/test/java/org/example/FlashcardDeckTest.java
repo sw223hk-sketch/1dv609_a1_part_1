@@ -72,4 +72,24 @@ public class FlashcardDeckTest {
 
     }
 
+    @Test
+    void testToString() {
+        FlashcardDeck toBeShuffledDeck = new FlashcardDeck();
+
+        // Create new flashcards
+        Flashcard fc1 = new Flashcard("Hi in Swedish?", "Hej");
+        Flashcard fc2 = new Flashcard("Thanks in Swedish?", "Tack");
+
+        // Add cards to the Deck
+        toBeShuffledDeck.addFlashcard(fc1);
+        toBeShuffledDeck.addFlashcard(fc2);
+
+        List<Flashcard> originalOrder = new ArrayList<>(toBeShuffledDeck.getFlashcards()); // orginal cards
+
+        for (int i = 0; i < originalOrder.size(); i++) {
+            assertEquals(originalOrder.get(i).toString(), toBeShuffledDeck.getFlashcards().get(i).toString());
+        }
+
+    }
+
 }
