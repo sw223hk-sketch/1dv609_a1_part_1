@@ -46,6 +46,7 @@ public class FlashcardTest {
         assertEquals("I am tired in Swedish?", fc.getQuestion()); // check if question updated correctly
     }
 
+    // Test if set answer works correctly
     @Test
     void testSetAnswer() {
         Flashcard fc = new Flashcard("You are welcome in Swedish?", "Varsågod");
